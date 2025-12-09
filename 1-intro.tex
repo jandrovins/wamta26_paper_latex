@@ -1,0 +1,52 @@
+\section{Introduction}
+\label{sec:intro}
+
+The end of Dennard scaling~\cite{Dennard1974} and the subsequent shift toward multi-core architectures over the past two decades has fundamentally transformed the computing landscape. Multi-core systems with non-uniform memory access architectures are the norm nowadays.
+The proliferation of multi-core processors has made intra-node parallelism essential for achieving high performance in scientific computing applications.
+
+To exploit the full potential of multi-core systems, parallel programming models are designed to provide abstractions that simplify the development of parallel applications. 
+These models aim to hide the complexity of parallel execution while enabling programmers to express parallelism naturally, allowing developers to concentrate on solving their domain-specific problems rather than wrestling with the intricacies of parallel programming. \todo{Supongo que este párrafo sobra para esta conferencia}
+
+The fork-join model emerged as a powerful tool able to express parallelism for a wide range of scientific applications, with OpenMP being the de-facto standard used in HPC. 
+The fork-join model excels with structured parallelism, where the parallel work can be divided into independent tasks at well-defined points in the program. This includes data-parallel operations on independent blocks of data, as well as functional parallelism with a predictable structure.
+.
+Despite these strenghts, the fork-join model struggles with applications exhibiting dynamic parallelism, where the structure and amount of parallel work is not known at compile time.
+
+Hierarchical algorithms, nested parallelism, and dynamic work creation are common patterns in parallel programming that can be difficult to express using the fork-join model~\cite{ayguadeProposalTaskParallelism2008}~\cite{duranProposalDependenciesOpenMP2009}. Task-based parallel programming models were introduced to address these limitations by providing more flexible parallelism expression.
+
+The scheduling of tasks is a critical aspect of task-based parallel programming models. The task scheduler is in charge of feeding ready tasks to the available processing units, ensuring that tasks are executed in a timely manner. 
+There is a tradoff between scheduling algorithms and scalability. 
+The more complex the scheduling algorithm, the more overhead the runtime incurs to manage the scheduling of tasks, and the less scalable the runtime becomes. 
+
+This creates a fundamental challenge in runtime design: finding the optimal balance between scheduling sophistication and overhead. The `sweet spot' depends heavily on the application characteristics, hardware architecture, and task granularity. 
+What works well for one scenario may be suboptimal for another.
+Most widely used runtimes for task-based parallel programming models, implement schedulers which are restrictive in the sense that they do not allow the user to control the scheduling policy.
+Ideally, each application should be able to specify the specific scheduling policy that best suits its needs, allowing the runtime to adapt dynamically to the application's requirements. 
+When more complex scheduling policies are needed, the runtime can use them, while still supporting simpler, less time-consuming policies for those application that benefit from them in order to reduce overhead.
+
+Schedulers that do not consider data locality often exhibit performance variability on NUMA architectures~\cite{terbovenApproachesTaskAffinity2016}.
+Modern runtime systems also face the challenge of managing complex memory hierarchies.
+The non-uniformity of memory access times, determined not only by the NUMA nodes but also by the cache hierarchy, can significantly impact the performance of parallel applications. 
+This is especially true for task-based parallel programming models, where tasks data access patterns can vary widely, when compared to the usually structured data access patterns of the fork-join parallel model.
+Even when  \todo{Mencionar que no está implementado en upstream puede ser innecesariamente incisivo/provocador/impertinente?} the affinity clause has been introduced in OpenMP 5.0~\cite{openmp50}, nor the LLVM \libomp nor the GCC \libgomp tasking runtimes have a working implementation of it upstream~\cite{OpenMPSupportClang}.
+Affinity-guided scheduling is a feature that has been missing in the de facto runtimes for task-based parallel programming models, and it is a feature that can significantly improve performance of applications that benefit from data locality \cite{klinkenbergAssessingTasktoDataAffinity2018a}\cite{terbovenApproachesTaskAffinity2016}.
+
+In this work, a hierarchical affinity-aware scheduler is proposed, which gives power to the user to fine-tune scheduling decisions for different sets of tasks, called taskgroups, providing affinity constraints for task execution.
+The proposed design aims to achieve the balance between flexibility and efficiency by implementing a hierarchical structure that allows the runtime to manage the scheduling of tasks efficiently.
+To the best of our knowledge, there is no system that provides both affinity constraints while at the same time fine-grained control over scheduling ordering inside sub-sets of tasks. \todo{Tal vez poner esto en related work? encontrar una format de dejar claro que hacemos 2 cosas al mismo tiempo}
+
+Specifically, our contributions are:
+
+\begin{itemize}
+        \item Design and implement a hierarchical scheduler architecture that supports multiple scheduling policies within a single runtime system.
+        \item Develop a taskgroup-based approach that allows users to specify different scheduling policies for different sets of tasks, allowing efficient nesting of taskgroups.
+        \item Enforce hierarchical affinity constraints to minimize remote memory accesses and maximize cache reuse, substantially reducing latency and increasing effective bandwidth across NUMA nodes and cache levels.
+        \item Replace nOS-V's existing scheduler with the new hierarchical design, ensuring compatibility with the OmpSs-2 programming model.
+        \item Maintain acceptable task-serving latency while supporting complex scheduling decisions.
+        \item Evaluate the performance impact of the proposed scheduler across a range of applications that benefit from controlled task execution ordering and affinity placement.
+        \todo{Make this list more concise and powerful}
+\end{itemize}
+
+
+
+%Due to the heterogeneous cost of memory access in the modern NUMA architectures, locality-aware scheduling has emerged as a means to improve performace of the memory subsystem efficiency by giving hints to the runtime on which core(s) the task may be executed~\cite{OperaSimilarityAnalysis}\cite{terbovenApproachesTaskAffinity2016a}\cite{klinkenbergAssessingTasktoDataAffinity2018a}.

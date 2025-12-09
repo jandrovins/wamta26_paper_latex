@@ -1,0 +1,54 @@
+\documentclass[runningheads]{llncs}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+% If you use the hyperref package, please uncomment the following two lines
+% to display URLs in blue roman font according to Springer's eBook style:
+%\usepackage{color}
+%\renewcommand\UrlFont{\color{blue}\rmfamily}
+%\urlstyle{rm}
+%
+\usepackage{xspace}
+\usepackage{todonotes}
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
+\setlength{\belowcaptionskip}{-15pt} % Adjust the value as needed
+
+\newcommand{\libomp}{\texttt{libomp}\xspace}
+\newcommand{\libgomp}{\texttt{libgomp}\xspace}
+\begin{document}
+
+\title{Hierarchical Scheduling for Composable Affinity-Aware Policies in Task-Based Runtimes}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%\titlerunning{Abbreviated paper title}
+
+\authorrunning{V. Arcila et al.}
+
+\author{
+Vincent A. Arcila Larrea\inst{1}\orcidID{0009-0009-9037-4607} \and \\
+David \'Alvarez Robert\inst{1}\orcidID{0000-0002-4607-1627} \and \\
+Antoni Navarro Mu\~{n}oz\inst{1}\orcidID{0000-0002-8317-6022} \and \\
+Vicen\c{c} Beltran Querol\inst{1}\orcidID{0000-0002-3580-9630}}
+
+\institute{Barcelona Supercomputing Center, Spain \\
+\email{\{vincent.arcila,david.alvarez,antoni.navarro,vbeltran\}@bsc.es}}
+
+
+\maketitle
+
+
+\input{0-abstract}
+\input{1-intro}
+\input{2-background}
+\input{3-free-agents}
+\input{4-evaluation}
+\input{5-related}
+\input{6-conclusions}
+\input{7-credits}
+
+%\bibliographystyle{splncs04}
+%% Bibliography
+\printbibliography
+
+\end{document}

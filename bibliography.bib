@@ -1,0 +1,1862 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+@InProceedings{10.1007/978-3-031-23220-6_11,
+author="Criado, Joel
+and Lopez, Victor
+and Vinyals-Ylla-Catala, Joan
+and Ramirez-Miranda, Guillem
+and Teruel, Xavier
+and Garcia-Gasulla, Marta",
+editor="Anzt, Hartwig
+and Bienz, Amanda
+and Luszczek, Piotr
+and Baboulin, Marc",
+title="Exploiting OpenMP Malleability with Free Agent Threads and DLB",
+booktitle="High Performance Computing. ISC High Performance 2022 International Workshops",
+year="2022",
+publisher="Springer International Publishing",
+address="Cham",
+pages="162--175",
+abstract="This paper presents the evolution of the free agent threads for OpenMP to the new role-shifting threads model and their integration with the Dynamic Load Balance (DLB) library. We demonstrate how DLB efficiently manages the malleability exposed by the role-shifting threads to address load imbalance issues. We use two real-world scientific applications, one of them with a coupling case, to illustrate the potential of this approach. In addition, we also demonstrate that the new implementation is more usable than the former one, letting the runtime system automatically make decisions that were to be made by the programmer previously. All software is released open source.",
+isbn="978-3-031-23220-6"
+}
+
+
+
+@InProceedings{10.1007/978-3-030-85262-7_15,
+author="Lopez, Victor
+and Criado, Joel
+and Pe{\~{n}}acoba, Ra{\'u}l
+and Ferrer, Roger
+and Teruel, Xavier
+and Garcia-Gasulla, Marta",
+editor="McIntosh-Smith, Simon
+and de Supinski, Bronis R.
+and Klinkenberg, Jannis",
+title="An OpenMP Free Agent Threads Implementation",
+booktitle="OpenMP: Enabling Massive Node-Level Parallelism",
+year="2021",
+publisher="Springer International Publishing",
+address="Cham",
+pages="211--225",
+abstract="In this paper, we introduce a design and implementation of the free agent threads for OpenMP. These threads increase the malleability of the OpenMP programming model, offering resource managers and runtime systems flexibility to manage threads and resources efficiently. We demonstrate how free agent threads can address load imbalances problems at the OpenMP level and at an MPI level or higher. We use two mini-apps extracted from two real HPC applications and representative of real-world codes to demonstrate this. We conclude that more malleability in thread management is necessary, and free agents can be regarded as a practical starting point to increase malleability in thread management.",
+isbn="978-3-030-85262-7"
+}
+@article{maronasMitigatingNUMAEffect2023,
+  title = {Mitigating the {{NUMA}} Effect on Task-Based Runtime Systems},
+  author = {Maroñas, Marcos and Navarro, Antoni and Ayguadé, Eduard and Beltran, Vicenç},
+  date = {2023-09-01},
+  journaltitle = {The Journal of Supercomputing},
+  volume = {79},
+  number = {13},
+  pages = {14287--14312},
+  publisher = {Springer US},
+  issn = {1573-0484},
+  doi = {10.1007/s11227-023-05164-9},
+  url = {https://link.springer.com/article/10.1007/s11227-023-05164-9},
+  urldate = {2025-05-26},
+  abstract = {Processors with multiple sockets or chiplets are becoming more conventional. These kinds of processors usually expose a single shared address space. However, due to hardware restrictions, they adopt a NUMA approach, where each processor accesses local memory faster than remote memories. Reducing data motion is crucial to improve the overall performance. Thus, computations must run as close as possible to where the data resides. We propose a new approach that mitigates the NUMA effect on NUMA systems. Our solution is based on the OmpSs-2 programming model, a task-based parallel programming model, similar to OpenMP. We first provide a simple API to allocate memory in NUMA systems using different policies. Then, combining user-given information that specifies dependences between tasks, and information collected in a global directory when allocating data, we extend our runtime library to perform NUMA-aware work scheduling. Our heuristic considers data location, distance between NUMA nodes, and the load of each NUMA node to seamlessly minimize data motion costs and load imbalance. Our evaluation shows that our NUMA support can significantly mitigate the NUMA effect by reducing the amount of remote accesses, and so improving performance on most benchmarks, reaching up to 2x speedup in a 2-NUMA machine, and up to 7.1x in a 8-NUMA machine.},
+  issue = {13},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/VMYDMXJY/Maroñas et al. - 2023 - Mitigating the NUMA effect on task-based runtime systems.pdf}
+}
+@inproceedings{muddukrishnaTaskSchedulingManycore2013,
+  title = {Task {{Scheduling}} on {{Manycore Processors}} with {{Home Caches}}},
+  booktitle = {Euro-{{Par}} 2012: {{Parallel Processing Workshops}}},
+  author = {Muddukrishna, Ananya and Podobas, Artur and Brorsson, Mats and Vlassov, Vladimir},
+  year = {2013},
+  pages = {357--367},
+  publisher = {Springer, Berlin, Heidelberg},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-642-36949-0_39},
+  urldate = {2025-06-02},
+  isbn = {978-3-642-36949-0},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/F5JR6BWX/Muddukrishna et al. - 2013 - Task Scheduling on Manycore Processors with Home Caches.pdf}
+}
+
+@inproceedings{augonnetStarPUUnifiedPlatform2009b,
+  title = {{{StarPU}}: {{A Unified Platform}} for {{Task Scheduling}} on {{Heterogeneous Multicore Architectures}}},
+  shorttitle = {{{StarPU}}},
+  booktitle = {Euro-{{Par}} 2009 {{Parallel Processing}}},
+  author = {Augonnet, Cédric and Thibault, Samuel and Namyst, Raymond and Wacrenier, Pierre-André},
+  date = {2009},
+  pages = {863--874},
+  publisher = {Springer, Berlin, Heidelberg},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-642-03869-3_80},
+  url = {https://link.springer.com/chapter/10.1007/978-3-642-03869-3_80},
+  urldate = {2025-06-16},
+  abstract = {In the field of HPC, the current hardware trend is to design multiprocessor architectures that feature heterogeneous technologies such as specialized coprocessors (e.g. Cell/BE SPUs) or data-parallel accelerators (e.g. GPGPUs). Approaching the theoretical performance...},
+  eventtitle = {European {{Conference}} on {{Parallel Processing}}},
+  isbn = {978-3-642-03869-3},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/QRML2EHT/Augonnet et al. - 2009 - StarPU A Unified Platform for Task Scheduling on Heterogeneous Multicore Architectures.pdf}
+}
+@online{EvaluationOpenMPTask,
+  title = {Evaluation of {{OpenMP Task Scheduling Algorithms}} for {{Large NUMA Architectures}} | {{SpringerLink}}},
+  url = {https://link-springer-com.recursos.biblioteca.upc.edu/chapter/10.1007/978-3-319-09873-9_50},
+  urldate = {2025-06-16},
+  file = {/home/vincent/Zotero/storage/Z854UXW9/978-3-319-09873-9_50.html}
+}
+@ARTICLE{9018074,
+  author={Iwasaki, Shintaro and Amer, Abdelhalim and Taura, Kenjiro and Balaji, Pavan},
+  journal={IEEE Transactions on Parallel and Distributed Systems}, 
+  title={Analyzing the Performance Trade-Off in Implementing User-Level Threads}, 
+  year={2020},
+  volume={31},
+  number={8},
+  pages={1859-1877},
+  keywords={Context;Instruction sets;Switches;Libraries;Runtime;Hardware;Computer architecture;Multithreading;multitasking;scheduling;user-level threads;context switch;task parallelism},
+  doi={10.1109/TPDS.2020.2976057}}
+
+@inproceedings{10.1145/3385412.3385994,
+author = {Farvardin, Kavon and Reppy, John},
+title = {From folklore to fact: comparing implementations of stacks and continuations},
+year = {2020},
+isbn = {9781450376136},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+doi = {10.1145/3385412.3385994},
+abstract = {The efficient implementation of function calls and non-local control transfers is a critical part of modern language implementations and is important in the implementation of everything from recursion, higher-order functions, concurrency and coroutines, to task-based parallelism. In a compiler, these features can be supported by a variety of mechanisms, including call stacks, segmented stacks, and heap-allocated continuation closures.  An implementor of a high-level language with advanced control features might ask the question ``what is the best choice for my implementation?'' Unfortunately, the current literature does not provide much guidance, since previous studies suffer from various flaws in methodology and are outdated for modern hardware. In the absence of recent, well-normalized measurements and a holistic overview of their implementation specifics, the path of least resistance when choosing a strategy is to trust folklore, but the folklore is also suspect.  This paper attempts to remedy this situation by providing an ``apples-to-apples'' comparison of six different approaches to implementing call stacks and continuations. This comparison uses the same source language, compiler pipeline, LLVM-backend, and runtime system, with the only differences being those required by the differences in implementation strategy. We compare the implementation challenges of the different approaches, their sequential performance, and their suitability to support advanced control mechanisms, including supporting heavily threaded code. In addition to the comparison of implementation strategies, the paper's contributions also include a number of useful implementation techniques that we discovered along the way.},
+booktitle = {Proceedings of the 41st ACM SIGPLAN Conference on Programming Language Design and Implementation},
+pages = {75–90},
+numpages = {16},
+keywords = {Functional Programming, Continuations, Concurrency, Compilers, Call stacks},
+location = {London, UK},
+series = {PLDI 2020}
+}
+
+@article{Dennard1974,
+  author  = {Dennard, R. H. and Gaensslen, F. H. and Yu, H.-N. and Rideout, V. L. and Bassous, E. and Leblanc, A. R.},
+  title   = {Design of Ion-Implanted {MOSFET}'s with Very Small Physical Dimensions},
+  journal = {IEEE Journal of Solid-State Circuits},
+  volume  = {9},
+  number  = {5},
+  pages   = {256--268},
+  month   = {10},
+  year    = {1974},
+  doi     = {10.1109/JSSC.1974.1050511}
+}
+@incollection{klinkenbergAssessingTasktoDataAffinity2018a,
+  title = {Assessing {{Task-to-Data Affinity}} in the {{LLVM OpenMP Runtime}}},
+  booktitle = {Evolving {{OpenMP}} for {{Evolving Architectures}}},
+  author = {Klinkenberg, Jannis and Samfass, Philipp and Terboven, Christian and Duran, Alejandro and Klemm, Michael and Teruel, Xavier and Mateo, Sergi and Olivier, Stephen L. and Müller, Matthias S.},
+  editor = {De Supinski, Bronis R. and Valero-Lara, Pedro and Martorell, Xavier and Mateo Bellido, Sergi and Labarta, Jesus},
+  date = {2018},
+  volume = {11128},
+  pages = {236--251},
+  publisher = {Springer International Publishing},
+  location = {Cham},
+  doi = {10.1007/978-3-319-98521-3_16},
+  url = {http://link.springer.com/10.1007/978-3-319-98521-3_16},
+  urldate = {2025-06-01},
+  abstract = {In modern shared-memory NUMA systems which typically consist oftwo or more multi-core processor packages with local memory, affinity of data to computation is crucial for achieving high performance with an OpenMP program. OpenMP* 3.0 introduced support for task-parallel programs in 2008 and has continued to extend its applicability and expressiveness. However, the ability to support data affinity of tasks is missing.In this paper, we investigate several approaches for task-to-data affinity that combine locality-aware task distribution and task stealing. We introduce the task affinity clause that will be part of OpenMP 5.0 and provide the reasoning behind its design. Evaluation with our experimental implementation in the LLVM OpenMP runtime shows that task affinity improves execution performance up to 4.5 x on an 8-socket NUMA machine and significantly reduces runtime variability of OpenMP tasks. Our results demonstrate that a variety of applications can benefit from task affinity and that the presented clause is closing the gap of task-to-data affinity in OpenMP 5.0.},
+  isbn = {978-3-319-98520-6 978-3-319-98521-3},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/6QM3CXKN/Klinkenberg et al. - 2018 - Assessing Task-to-Data Affinity in the LLVM OpenMP Runtime.pdf}
+}
+
+@incollection{terbovenApproachesTaskAffinity2016,
+  title = {Approaches for {{Task Affinity}} in {{OpenMP}}},
+  booktitle = {{{OpenMP}}: {{Memory}}, {{Devices}}, and {{Tasks}}},
+  author = {Terboven, Christian and Hahnfeld, Jonas and Teruel, Xavier and Mateo, Sergi and Duran, Alejandro and Klemm, Michael and Olivier, Stephen L. and De Supinski, Bronis R.},
+  editor = {Maruyama, Naoya and De Supinski, Bronis R. and Wahib, Mohamed},
+  date = {2016},
+  volume = {9903},
+  pages = {102--115},
+  publisher = {Springer International Publishing},
+  location = {Cham},
+  doi = {10.1007/978-3-319-45550-1_8},
+  url = {http://link.springer.com/10.1007/978-3-319-45550-1_8},
+  urldate = {2025-09-01},
+  abstract = {OpenMP tasking supports parallelization of irregular algorithms. Recent OpenMP specifications extended tasking to increase functionality and to support optimizations, for instance with the taskloop construct. However, task scheduling remains opaque, which leads to inconsistent performance on NUMA architectures. We assess design issues for task affinity and explore several approaches to enable it. We evaluate these proposals with implementations in the Nanos++ and LLVM OpenMP runtimes that improve performance up to 40\% and significantly reduce execution time variation.},
+  isbn = {978-3-319-45549-5 978-3-319-45550-1},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/QRKZDKX7/Terboven et al. - 2016 - Approaches for Task Affinity in OpenMP.pdf}
+}
+
+@article{OperaSimilarityAnalysis,
+  title = {Opera: {{Similarity Analysis}} on {{Data Access Patterns}} of {{OpenMP Tasks}} to {{Optimize Task Affinity}}},
+  author = {Ren, J and Liao, C and Li, D},
+  abstract = {OpenMP supports task-based parallelism, but task scheduling is oblivious to data locality, which leads to inconsistent performance. In this paper, we present Opera, an OpenMP task scheduler which leverages memory access information profiled offline to guide runtime task scheduling. The evaluation results show that Opera improves performance by up to 40\% (21.2\% on average), comparing with using three schedulers in the Nanos++ runtime library.},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/34IJIVVG/Ren et al. - Opera Similarity Analysis on Data Access Patterns of OpenMP Tasks to Optimize Task Affinity.pdf}
+}
+
+@article{duranProposalDependenciesOpenMP2009,
+  title = {A {{Proposal}} to {{Extend}} the {{OpenMP Tasking Model}} with {{Dependent Tasks}}},
+  author = {Duran, Alejandro and Ferrer, Roger and Ayguadé, Eduard and Badia, Rosa M. and Labarta, Jesus},
+  date = {2009-06-01},
+  journaltitle = {International Journal of Parallel Programming},
+  shortjournal = {Int J Parallel Prog},
+  volume = {37},
+  number = {3},
+  pages = {292--305},
+  publisher = {Springer US},
+  issn = {1573-7640},
+  doi = {10.1007/s10766-009-0101-1},
+  url = {https://link.springer.com/article/10.1007/s10766-009-0101-1},
+  urldate = {2025-06-05},
+  abstract = {Tasking in OpenMP 3.0 has been conceived to handle the dynamic generation of unstructured parallelism. New directives have been added allowing the user to identify units of independent work (tasks) and to define points to wait for the completion of tasks (task barriers). In this document we propose extensions to allow the runtime detection of dependencies between generated tasks, broading the range of applications that can benefit from tasking or improving the performance when load balancing or locality are critical issues for performance. The proposed extensions are evaluated on a SGI Altix multiprocessor architecture using a couple of small applications and a prototype runtime system implementation.},
+  issue = {3},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/UBNFCEUR/Duran et al. - 2009 - A Proposal to Extend the OpenMP Tasking Model with Dependent Tasks.pdf}
+}
+@inproceedings{ayguadeProposalTaskParallelism2008,
+  title = {A {{Proposal}} for {{Task Parallelism}} in {{OpenMP}}},
+  booktitle = {A {{Practical Programming Model}} for the {{Multi-Core Era}}},
+  author = {Ayguadé, Eduard and Copty, Nawal and Duran, Alejandro and Hoeflinger, Jay and Lin, Yuan and Massaioli, Federico and Su, Ernesto and Unnikrishnan, Priya and Zhang, Guansong},
+  date = {2008},
+  pages = {1--12},
+  publisher = {Springer, Berlin, Heidelberg},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-540-69303-1_1},
+  url = {https://link.springer.com/chapter/10.1007/978-3-540-69303-1_1},
+  urldate = {2025-06-04},
+  abstract = {This paper presents a novel proposal to define task parallelism in OpenMP. Task parallelism has been lacking in the OpenMP language for a number of years already. As we show, this makes certain kinds of applications difficult to parallelize, inefficient or both. A...},
+  eventtitle = {International {{Workshop}} on {{OpenMP}}},
+  isbn = {978-3-540-69303-1},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/5MKUAQZX/Ayguadé et al. - 2008 - A Proposal for Task Parallelism in OpenMP.pdf}
+}
+
+@inproceedings{DBLP:conf/sc/EvansCOPIRB20,
+  author       = {Noah Evans and
+                  Jan Ciesko and
+                  Stephen L. Olivier and
+                  Howard Pritchard and
+                  Shintaro Iwasaki and
+                  Ken Raffenetti and
+                  Pavan Balaji},
+  title        = {Implementing Flexible Threading Support in Open {MPI}},
+  booktitle    = {Workshop on Exascale MPI, ExaMPI@SC 2020, Atlanta, GA, USA, November
+                  13, 2020},
+  pages        = {21--30},
+  publisher    = {{IEEE}},
+  year         = {2020},
+  doi          = {10.1109/EXAMPI52011.2020.00008},
+  timestamp    = {Thu, 14 Oct 2021 10:09:25 +0200},
+}
+
+@inproceedings{10.1109/HPCC-CSS-ICESS.2015.82,
+author = {Lu, Huiwei and Seo, Sangmin and Balaji, Pavan},
+title = {MPI+ULT: Overlapping Communication and Computation with User-Level Threads},
+year = {2015},
+isbn = {9781479989379},
+publisher = {IEEE Computer Society},
+address = {USA},
+doi = {10.1109/HPCC-CSS-ICESS.2015.82},
+abstract = {As the core density of future processors keeps increasing, MPI+Threads is becoming a promising programming model for large scale SMP clusters. Generally speaking, hybrid MPI+Threads runtime can largely improve intra-node parallelism and data sharing on shared-memory architectures. However, it does not help much on inter-node communication due to the inefficient integration of existing communication and threading libraries. More specifically, existing MPI+Threads runtime systems use coarse-grained locks to protect their thread safety, which leads to heavy lock contention and limit the scalability of the runtime. While kernel threads are efficient for intra-node parallelism, we found that they are too heavy for computation/communication overlap in an MPI+Threads runtime system. In this paper we propose a new way for asynchronous MPI communication with user-level threads (MPI+ULT). By enabling ULT context switching inside MPI, MPI communication in one ULT can overlap with computation or communication in other ULTs. MPI+ULT can be used for communication hiding in various scenarios, including MPI point-to-point, collective and one-sided calls. We use MPI+ULT in two applications, a high-performance conjugate gradient benchmark and a genome assembly application, to show how MPI+ULT can help effectively hide communication and reduce runtime overhead. Experiments show that our method helps improve the performance of these applications significantly.},
+booktitle = {Proceedings of the 2015 IEEE 17th International Conference on High Performance Computing and Communications},
+pages = {444–454},
+numpages = {11},
+keywords = {MPI+X, Message Passing Interface, Overlapping Communication and Computation, User-Level Thread},
+series = {HPCC-CSS-ICESS '15}
+}
+
+@InProceedings{10.1007/978-3-031-61763-8_14,
+author="Sala, Kevin
+and {\'A}lvarez, David
+and Pe{\~{n}}acoba, Ra{\'u}l
+and Arias Mallo, Rodrigo
+and Navarro, Antoni
+and Roca, Aleix
+and Beltran, Vicen{\c{c}}",
+editor="Diehl, Patrick
+and Schuchart, Joseph
+and Valero-Lara, Pedro
+and Bosilca, George",
+title="ALPI: Enhancing Portability and Interoperability of Task-Aware Libraries",
+booktitle="Asynchronous Many-Task Systems and Applications",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="142--153",
+abstract="Task-based programming models are a promising approach to exploiting complex distributed and heterogeneous systems. However, integrating different communication, offloading, and storage APIs within tasks poses performance and deadlock risks. Several Task-Aware libraries, such as TAMPI, TASIO, and TACUDA, have been developed to integrate blocking and non-blocking APIs within task-based programming models efficiently. In this paper, we introduce the Asynchronous Low-level Programming Interface (ALPI) to enable the interoperability and portability of Task-Aware libraries across various programming models and runtime systems. We have implemented ALPI in the Nanos6 and nOS-V runtimes, enhancing the integration of Task-Aware libraries with the OmpSs-2 and OpenMP programming models. This work is a step towards improving the composability of parallel programming models by supporting Task-Aware libraries across different runtime systems.",
+isbn="978-3-031-61763-8"
+}
+
+@article{10.1145/3319618,
+author = {Belson, Bruce and Holdsworth, Jason and Xiang, Wei and Philippa, Bronson},
+title = {A Survey of Asynchronous Programming Using Coroutines in the Internet of Things and Embedded Systems},
+year = {2019},
+issue_date = {May 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {18},
+number = {3},
+issn = {1539-9087},
+doi = {10.1145/3319618},
+abstract = {Many Internet of Things and embedded projects are event driven, and therefore require asynchronous and concurrent programming. Current proposals for C++20 suggest that coroutines will have native language support. It is timely to survey the current use of coroutines in embedded systems development. This article investigates existing research which uses or describes coroutines on resource-constrained platforms. The existing research is analysed with regard to: software platform, hardware platform, and capacity; use cases and intended benefits; and the application programming interface design used for coroutines. A systematic mapping study was performed, to select studies published between 2007 and 2018 which contained original research into the application of coroutines on resource-constrained platforms. An initial set of 566 candidate papers, collated from on-line databases, were reduced to only 35 after filters were applied, revealing the following taxonomy. The C 8 C++ programming languages were used by 22 studies out of 35. As regards hardware, 16 studies used 8- or 16-bit processors while 13 used 32-bit processors. The four most common use cases were concurrency (17 papers), network communication (15), sensor readings (9), and data flow (7). The leading intended benefits were code style and simplicity (12 papers), scheduling (9), and efficiency (8). A wide variety of techniques have been used to implement coroutines, including native macros, additional tool chain steps, new language features, and non-portable assembly language. We conclude that there is widespread demand for coroutines on resource-constrained devices. Our findings suggest that there is significant demand for a formalised, stable, well-supported implementation of coroutines in C++, designed with consideration of the special needs of resource-constrained devices, and further that such an implementation would bring benefits specific to such devices.},
+journal = {ACM Trans. Embed. Comput. Syst.},
+articleno = {21},
+numpages = {21},
+keywords = {scheduling, resource-constrained, direct style, asynchronous, Embedded}
+}
+
+@article{DBLP:journals/jsa/SchmidFM23,
+  author       = {Michael Schmid and
+                  Florian Fritz and
+                  J{\"{u}}rgen Mottok},
+  title        = {Corrigendum to 'Fine-Grained Parallelism Framework with Predictable
+                  Work-Stealing for Real-Time Multiprocessor Systems' Journal of Systems
+                  Architecture Vol. 124, March 2022, Article Number 102393},
+  journal      = {J. Syst. Archit.},
+  volume       = {138},
+  pages        = {102873},
+  year         = {2023},
+  doi          = {10.1016/J.SYSARC.2023.102873},
+  timestamp    = {Thu, 06 Jul 2023 22:42:02 +0200}
+}
+
+@inproceedings{DBLP:conf/arcs/FritzSM20,
+  author       = {Florian Fritz and
+                  Michael Schmid and
+                  J{\"{u}}rgen Mottok},
+  editor       = {Andr{\'{e}} Brinkmann and
+                  Wolfgang Karl and
+                  Stefan Lankes and
+                  Sven Tomforde and
+                  Thilo Pionteck and
+                  Carsten Trinitis},
+  title        = {Accelerating Real-Time Applications with Predictable Work-Stealing},
+  booktitle    = {Architecture of Computing Systems - {ARCS} 2020 - 33rd International
+                  Conference, Aachen, Germany, May 25-28, 2020, Proceedings},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {12155},
+  pages        = {241--255},
+  publisher    = {Springer},
+  year         = {2020},
+  doi          = {10.1007/978-3-030-52794-5\_18},
+  timestamp    = {Thu, 23 Jun 2022 19:59:00 +0200},
+}
+
+@article{DBLP:journals/spe/UttureN19,
+  author       = {Akshay Utture and
+                  V. Krishna Nandivada},
+  title        = {Efficient lock-step synchronization in task-parallel languages},
+  journal      = {Softw. Pract. Exp.},
+  volume       = {49},
+  number       = {9},
+  pages        = {1379--1401},
+  year         = {2019},
+  doi          = {10.1002/SPE.2726},
+  timestamp    = {Thu, 09 Apr 2020 17:14:21 +0200}
+}
+
+@article{DBLP:journals/fgcs/CastelloMSBBP18,
+  author       = {Adri{\'{a}}n Castell{\'{o}} and
+                  Rafael Mayo and
+                  Kevin Sala and
+                  Vicen{\c{c}} Beltran and
+                  Pavan Balaji and
+                  Antonio J. Pe{\~{n}}a},
+  title        = {On the adequacy of lightweight thread approaches for high-level parallel
+                  programming models},
+  journal      = {Future Gener. Comput. Syst.},
+  volume       = {84},
+  pages        = {22--31},
+  year         = {2018},
+  doi          = {10.1016/J.FUTURE.2018.02.016},
+  timestamp    = {Mon, 02 May 2022 11:39:24 +0200}
+}
+
+@INPROCEEDINGS{7776544,
+  author={Castelló, Adrián and Peña, Antonio J. and Seo, Sangmin and Mayo, Rafael and Balaji, Pavan and Quintana-Ortí, Enrique S.},
+  booktitle={2016 IEEE International Conference on Cluster Computing (CLUSTER)}, 
+  title={A Review of Lightweight Thread Approaches for High Performance Computing}, 
+  year={2016},
+  volume={},
+  number={},
+  pages={471-480},
+  keywords={Message systems;Libraries;Instruction sets;Synchronization;Semantics;Hardware;Concurrent computing;Lightweight Threads;Programming Models;OpenMP},
+  doi={10.1109/CLUSTER.2016.12}}
+
+@inproceedings{DBLP:conf/iwomp/NonellQB19,
+  author       = {Aleix Roca and
+                  Vicen{\c{c}} Beltran and
+                  Sergi Mateo},
+  title        = {Introducing the Task-Aware Storage {I/O} {(TASIO)} Library},
+  booktitle    = {15th International Workshop on OpenMP, {IWOMP} 2019, Auckland, New Zealand, September 11-13, 2019, Proceedings},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {11718},
+  pages        = {274--288},
+  publisher    = {Springer},
+  year         = {2019},
+  doi          = {10.1007/978-3-030-28596-8\_19},
+  timestamp    = {Thu, 05 Sep 2019 19:42:13 +0200},
+}
+
+@article{DBLP:journals/pc/SalaTPPBL19,
+  author       = {Kevin Sala and
+                  Xavier Teruel and
+                  Josep M. P{\'{e}}rez and
+                  Antonio J. Pe{\~{n}}a and
+                  Vicen{\c{c}} Beltran and
+                  Jes{\'{u}}s Labarta},
+  title        = {Integrating blocking and non-blocking {MPI} primitives with task-based
+                  programming models},
+  journal      = {Parallel Comput.},
+  volume       = {85},
+  pages        = {153--166},
+  year         = {2019},
+  doi          = {10.1016/J.PARCO.2018.12.008},
+  timestamp    = {Sat, 22 Feb 2020 19:23:10 +0100}
+}
+
+@inproceedings{DBLP:conf/cluster/SalaMB21,
+  author       = {Kevin Sala and
+                  Sandra Maci{\`{a}} and
+                  Vicen{\c{c}} Beltran},
+  title        = {Combining One-Sided Communications with Task-Based Programming Models},
+  booktitle    = {{IEEE} International Conference on Cluster Computing, {CLUSTER} 2021,
+                  Portland, OR, USA, September 7-10, 2021},
+  pages        = {528--541},
+  publisher    = {{IEEE}},
+  year         = {2021},
+  doi          = {10.1109/CLUSTER48925.2021.00024},
+  timestamp    = {Sun, 02 Oct 2022 15:57:39 +0200}
+}
+
+@article{10.1145/1462166.1462167,
+author = {Moura, Ana L\'{u}cia De and Ierusalimschy, Roberto},
+title = {Revisiting coroutines},
+year = {2009},
+issue_date = {February 2009},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {31},
+number = {2},
+issn = {0164-0925},
+doi = {10.1145/1462166.1462167},
+abstract = {This article advocates the revival of coroutines as a convenient general control abstraction. After proposing a new classification of coroutines, we introduce the concept of full asymmetric coroutines and provide a precise definition for it through an operational semantics. We then demonstrate that full coroutines have an expressive power equivalent to one-shot continuations and one-shot delimited continuations. We also show that full asymmetric coroutines and one-shot delimited continuations have many similarities, and therefore present comparable benefits. Nevertheless, coroutines are easier implemented and understood, especially in the realm of procedural languages.},
+journal = {ACM Trans. Program. Lang. Syst.},
+month = feb,
+articleno = {6},
+numpages = {31},
+keywords = {multitasking, generators, Continuations}
+}
+
+@inproceedings{10.1145/3572848.3577481,
+author = {Koval, Nikita and Alistarh, Dan and Elizarov, Roman},
+title = {Fast and Scalable Channels in Kotlin Coroutines},
+year = {2023},
+isbn = {9798400700156},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+doi = {10.1145/3572848.3577481},
+abstract = {Asynchronous programming has gained significant popularity over the last decade: support for this programming pattern is available in many popular languages via libraries and native language implementations, typically in the form of coroutines or the async/await construct. Instead of programming via shared memory, this concept assumes implicit synchronization through message passing. The key data structure enabling such communication is the rendezvous channel. Roughly, a rendezvous channel is a blocking queue of size zero, so both send(e) and receive() operations wait for each other, performing a rendezvous when they meet. To optimize the message passing pattern, channels are usually equipped with a fixed-size buffer, so sends do not suspend and put elements into the buffer until its capacity is exceeded. This primitive is known as a buffered channel.This paper presents a fast and scalable algorithm for both rendezvous and buffered channels. Similarly to modern queues, our solution is based on an infinite array with two positional counters for send(e) and receive() operations, leveraging the unconditional Fetch-And-Add instruction to update them. Yet, the algorithm requires non-trivial modifications of this classic pattern, in order to support the full channel semantics, such as buffering and cancellation of waiting requests. We compare the performance of our solution to that of the Kotlin implementation, as well as against other academic proposals, showing up to 9.8\texttimes{} speedup. To showcase its expressiveness and performance, we also integrated the proposed algorithm into the standard Kotlin Coroutines library, replacing the previous channel implementations.},
+booktitle = {Proceedings of the 28th ACM SIGPLAN Annual Symposium on Principles and Practice of Parallel Programming},
+pages = {107–118},
+numpages = {12},
+keywords = {buffered channel, concurrency, coroutines, kotlin, rendezvous channel, synchronous queue},
+location = {Montreal, QC, Canada},
+series = {PPoPP '23}
+}
+
+@article{10.1007/s11227-018-2238-4,
+author = {Thoman, Peter and Dichev, Kiril and Heller, Thomas and Iakymchuk, Roman and Aguilar, Xavier and Hasanov, Khalid and Gschwandtner, Philipp and Lemarinier, Pierre and Markidis, Stefano and Jordan, Herbert and Fahringer, Thomas and Katrinis, Kostas and Laure, Erwin and Nikolopoulos, Dimitrios S.},
+title = {A taxonomy of task-based parallel programming technologies for high-performance computing},
+year = {2018},
+issue_date = {April     2018},
+publisher = {Kluwer Academic Publishers},
+address = {USA},
+volume = {74},
+number = {4},
+issn = {0920-8542},
+doi = {10.1007/s11227-018-2238-4},
+abstract = {Task-based programming models for shared memory--such as Cilk Plus and OpenMP 3--are well established and documented. However, with the increase in parallel, many-core, and heterogeneous systems, a number of research-driven projects have developed more diversified task-based support, employing various programming and runtime features. Unfortunately, despite the fact that dozens of different task-based systems exist today and are actively used for parallel and high-performance computing (HPC), no comprehensive overview or classification of task-based technologies for HPC exists. In this paper, we provide an initial task-focused taxonomy for HPC technologies, which covers both programming interfaces and runtime mechanisms. We demonstrate the usefulness of our taxonomy by classifying state-of-the-art task-based environments in use today.},
+journal = {J. Supercomput.},
+month = apr,
+pages = {1422–1434},
+numpages = {13},
+keywords = {Taxonomy, Task-based parallelism, Scheduler, Runtime system, Monitoring framework, High-performance computing, Fault tolerance, API}
+}
+
+@inproceedings{DBLP:conf/ppopp/AlvarezSMRB21,
+  author       = {David {\'{A}}lvarez and
+                  Kevin Sala and
+                  Marcos Maro{\~{n}}as and
+                  Aleix Roca and
+                  Vicen{\c{c}} Beltran},
+  editor       = {Jaejin Lee and
+                  Erez Petrank},
+  title        = {Advanced synchronization techniques for task-based runtime systems},
+  booktitle    = {PPoPP '21: 26th {ACM} {SIGPLAN} Symposium on Principles and Practice
+                  of Parallel Programming, Virtual Event, Republic of Korea, February
+                  27- March 3, 2021},
+  pages        = {334--347},
+  publisher    = {{ACM}},
+  year         = {2021},
+  doi          = {10.1145/3437801.3441601},
+  timestamp    = {Mon, 26 Jun 2023 20:41:33 +0200}
+}
+
+
+@INPROCEEDINGS{alvarez2022nosv,
+  author={Álvarez, David and Sala, Kevin and Beltran, Vicenç},
+  booktitle={2024 IEEE International Parallel and Distributed Processing Symposium (IPDPS)},
+  title={nOS-V: Co-Executing HPC Applications Using System-Wide Task Scheduling},
+  year={2024},
+  volume={},
+  number={},
+  pages={312-324},
+  keywords={Schedules;Distributed processing;Runtime;Program processors;Programming;Parallel processing;Throughput;HPC;parallel programming;co-location;co-execution;task-based programming},
+  doi={10.1109/IPDPS57955.2024.00035}
+}
+
+@InProceedings{10.1007/978-3-030-57675-2_6,
+author="Jammer, Tim
+and Iwainsky, Christian
+and Bischof, Christian",
+editor="Malawski, Maciej
+and Rzadca, Krzysztof",
+title="A Comparison of the Scalability of OpenMP Implementations",
+booktitle="Euro-Par 2020: Parallel Processing",
+year="2020",
+publisher="Springer International Publishing",
+address="Cham",
+pages="83--97",
+abstract="OpenMP implementations must exploit current and upcoming hardware for performance. Overhead must be controlled and kept to a minimum to avoid low performance at scale. Previous work has shown that overheads do not scale favourably in commonly used OpenMP implementations. Focusing on synchronization overhead, this work analyses the overhead of core OpenMP runtime library components for GNU and LLVM compilers, reflecting on the implementation's source code and algorithms. In addition, this work investigates the implementation's capability to handle current CPU-internal NUMA structure observed in recent Intel CPUs. Using a custom benchmark designed to expose synchronization overhead of OpenMP regardless of user code, substantial differences between both implementations are observed. In summary, the LLVM implementation can be considered more scalable than the GNU implementation, but the GNU implementation yields lower overhead for lower threadcounts in some occasions. Neither implementation reacts to the system architecture, although the effects of the internal NUMA structure on the overhead can be observed.",
+isbn="978-3-030-57675-2"
+}
+
+@article{10.5555/1352079.1352134,
+author = {Pheatt, Chuck},
+title = {Intel® Threading Building Blocks},
+year = {2008},
+issue_date = {April 2008},
+publisher = {Consortium for Computing Sciences in Colleges},
+address = {Evansville, IN, USA},
+volume = {23},
+number = {4},
+issn = {1937-4771},
+abstract = {Intel® Threading Building Blocks [1] is a C++ runtime library that abstracts the low-level threading details necessary for effectively utilizing multi-core processors. It uses C++ templates to eliminate the need to create and manage threads. Applications tend to be more portable since parallelism is achieved through library calls and utilization of a task manager for scheduling. The task manager analyzes the system the software is running on, chooses the optimal number of threads, and performs load balancing that spreads out the work evenly across all processor cores. The library consists of data structures and algorithms that simplify parallel programming in C++ by avoiding requiring a programmer to use native threading packages such as POSIX threads or Windows threads, or even the portable Boost Threads.},
+journal = {J. Comput. Sci. Coll.},
+month = {apr},
+pages = {298},
+numpages = {1}
+}
+
+@article{10.1145/209937.209958,
+author = {Blumofe, Robert D. and Joerg, Christopher F. and Kuszmaul, Bradley C. and Leiserson, Charles E. and Randall, Keith H. and Zhou, Yuli},
+title = {Cilk: An Efficient Multithreaded Runtime System},
+year = {1995},
+issue_date = {Aug. 1995},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {30},
+number = {8},
+issn = {0362-1340},
+doi = {10.1145/209937.209958},
+abstract = {Cilk (pronounced “silk”) is a C-based runtime system for multi-threaded parallel programming. In this paper, we document the efficiency of the Cilk work-stealing scheduler, both empirically and analytically. We show that on real and synthetic applications, the “work” and “critical path” of a Cilk computation can be used to accurately model performance. Consequently, a Cilk programmer can focus on reducing the work and critical path of his computation, insulated from load balancing and other runtime scheduling issues. We also prove that for the class of “fully strict” (well-structured) programs, the Cilk scheduler achieves space, time and communication bounds all within a constant factor of optimal.The Cilk runtime system  currently runs on the Connection Machine CM5 MPP, the Intel Paragon MPP, the Silicon Graphics Power Challenge SMP, and the MIT Phish network of workstations. Applications written in Cilk include protein folding, graphic rendering, backtrack search, and the *Socrates chess program, which won third prize in the 1994 ACM International Computer Chess Championship.},
+journal = {SIGPLAN Not.},
+month = {aug},
+pages = {207–216},
+numpages = {10}
+}
+
+@Article{AugThiNamWac11CCPE,
+author = {C{\'e}dric Augonnet and Samuel Thibault and Raymond Namyst and Pierre-Andr{\'e} Wacrenier},
+title = {{StarPU: A Unified Platform for Task Scheduling on Heterogeneous Multicore Architectures}},
+journal = {CCPE - Concurrency and Computation: Practice and Experience, Special Issue: Euro-Par 2009},
+volume = 23,
+issue = 2,
+pages = {187--198},
+year = 2011,
+month = FEB,
+publisher = {John Wiley & Sons, Ltd.},
+doi = {10.1002/cpe.1631},
+url = {http://hal.inria.fr/inria-00550877},
+pdf = {http://hal.inria.fr/inria-00550877/document},
+KEYWORDS = {General Presentations;StarPU} 
+}
+
+@article {icl:698,
+  title = {Dense Linear Algebra on Distributed Heterogeneous Hardware with a Symbolic DAG Approach},
+  journal = {Scalable Computing and Communications: Theory and Practice},
+  year = {2013},
+  month = {2013-03},
+  pages = {699-735},
+  publisher = {John Wiley \& Sons},
+  author = {George Bosilca and Aurelien Bouteiller and Anthony Danalis and Thomas Herault and Piotr Luszczek and Jack Dongarra},
+  editor = {Samee Khan and Lin-Wang Wang and Albert Zomaya}
+}
+
+@inproceedings{Perez2017,
+  author={Perez, Josep M. and Beltran, Vicenç and Labarta, Jesus and Ayguadé, Eduard},
+  booktitle={IEEE International Parallel and Distributed Processing Symposium (IPDPS)},
+  title={Improving the Integration of Task Nesting and Dependencies in {OpenMP}},
+  year={2017},
+  volume={},
+  number={},
+  pages={809-818},
+  doi={10.1109/IPDPS.2017.69}
+}
+
+
+@ARTICLE{Martinez2022,
+  author={Martinez-Ferrer, Pedro J. and Nicholas Yzelman, Albert-Jan and Beltran, Vicenç},
+  journal={IEEE Transactions on Parallel and Distributed Systems},
+  title={A native tensor-vector multiplication algorithm for high performance computing},
+  year={2022},
+  volume={33},
+  number={12},
+  pages={3363-3374},
+  doi={10.1109/TPDS.2022.3153113}
+}
+
+@INPROCEEDINGS{Chrysos2012,  author={Chrysos, George},  booktitle={2012 IEEE Hot Chips 24 Symposium (HCS)},   title={Intel® Xeon Phi coprocessor (codename Knights Corner)},   year={2012},  volume={},  number={},  pages={1--31},  doi={10.1109/HOTCHIPS.2012.7476487}}
+
+@article{Gaud2015,
+author = {Gaud, Fabien and Lepers, Baptiste and Funston, Justin and Dashti, Mohammad and Fedorova, Alexandra and Qu\'{e}ma, Vivien and Lachaize, Renaud and Roth, Mark},
+title = {Challenges of Memory Management on Modern {NUMA} Systems},
+year = {2015},
+issue_date = {December 2015},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {58},
+number = {12},
+issn = {0001-0782},
+doi = {10.1145/2814328},
+abstract = {Optimizing NUMA systems applications with Carrefour.},
+journal = {Commun. ACM},
+pages = {59--66},
+numpages = {8}
+}
+
+
+@ARTICLE{McCalpin1995,
+  author = {John D.~McCalpin},
+  title = {Memory Bandwidth and Machine Balance in Current High Performance Computers},
+  journal = {IEEE Computer Society Technical Committee on Computer Architecture Newsletter},
+  year = {1995},
+  pages = {19--25},
+}
+
+
+@article{Kolda2009,
+ ISSN = {00361445, 10957200},
+ author = {Tamara G.~Kolda and Brett W.~Bader},
+ journal = {SIAM Review},
+ number = {3},
+ pages = {455--500},
+ publisher = {Society for Industrial and Applied Mathematics},
+ title = {Tensor Decompositions and Applications},
+ volume = {51},
+ year = {2009},
+ doi = {10.1137/07070111X}
+}
+
+
+@book{Greub1978,
+  doi = {10.1007/978-1-4613-9425-9},
+  year = {1978},
+  publisher = {Springer New York},
+  author = {Werner Greub},
+  title = {Multilinear Algebra}
+}
+
+
+@article{BLIS,
+   author      = {Field G. {V}an~{Z}ee and Robert A. {v}an~{d}e~{G}eijn},
+   title       = {{BLIS}: A Framework for Rapidly Instantiating {BLAS} Functionality},
+   journal     = {ACM Transactions on Mathematical Software},
+   volume      = {41},
+   number      = {3},
+   pages       = {14:1--14:33},
+   month       = {June},
+   year        = {2015},
+   issue_date  = {June 2015},
+}
+
+
+
+@article{Papalexakis2016,
+author = {Papalexakis, Evangelos E. and Faloutsos, Christos and Sidiropoulos, Nicholas D.},
+title = {Tensors for Data Mining and Data Fusion: models, Applications, and Scalable Algorithms},
+year = {2016},
+issue_date = {January 2017},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {8},
+number = {2},
+issn = {2157-6904},
+doi = {10.1145/2915921},
+journal = {ACM Trans. Intell. Syst. Technol.},
+articleno = {16},
+numpages = {44},
+}
+
+
+@article{diNapoli2014,
+title = {Towards an efficient use of the {BLAS} library for multilinear tensor contractions},
+journal = {Applied Mathematics and Computation},
+volume = {235},
+pages = {454-468},
+year = {2014},
+issn = {0096-3003},
+doi = {https://doi.org/10.1016/j.amc.2014.02.051},
+author = {Edoardo {Di Napoli} and Diego Fabregat-Traver and Gregorio Quintana-Ortí and Paolo Bientinesi},
+}
+
+
+@INPROCEEDINGS{Yang2016,
+  author={Shi, Yang and Niranjan, U. N. and Anandkumar, Animashree and Cecka, Cris},
+  booktitle={2016 IEEE 23rd Int. Conf. on High Performance Computing (HiPC)},
+  title={Tensor Contractions with Extended {BLAS} Kernels on {CPU} and {GPU}},
+  year={2016},
+  volume={},
+  number={},
+  pages={193--202},
+  doi={10.1109/HiPC.2016.031}
+}
+
+@INPROCEEDINGS{Wang2013,
+  author={Wang, Qian and Zhang, Xianyi and Zhang, Yunquan and Yi, Qing},
+  booktitle={SC '13: Proc. of the Int. Conf. on High Performance Computing, Networking, Storage and Analysis},
+  title={{AUGEM}: automatically generate high performance Dense Linear Algebra kernels on x86 {CPUs}},
+  year={2013},
+  volume={},
+  number={},
+  pages={1-12},
+  doi={10.1145/2503210.2503219}
+}
+
+
+@article{Pawlowski2019,
+title = {A multi-dimensional {Morton}-ordered block storage for mode-oblivious tensor computations},
+journal = {Journal of Computational Science},
+volume = {33},
+pages = {34--44},
+year = {2019},
+issn = {1877-7503},
+doi = {10.1016/j.jocs.2019.02.007},
+author="Paw{\l}owski, Filip and U{\c{c}}ar, Bora and Yzelman, A. N.",
+keywords = {Tensor computations, Data structure, Morton order, Tensor--vector multiplication}
+}
+
+
+@InProceedings{Pawlowski2020,
+author="Paw{\l}owski, Filip and U{\c{c}}ar, Bora and Yzelman, A. N.",
+title="High Performance Tensor--Vector Multiplication on Shared-Memory Systems",
+booktitle="Parallel Processing and Applied Mathematics",
+year="2020",
+publisher="Springer International Publishing",
+pages="38--48",
+doi={10.1007/978-3-030-43229-4_4},
+isbn="978-3-030-43229-4"
+}
+
+
+@inproceedings{LIBXSMM,
+author = {Heinecke, Alexander and Henry, Greg and Hutchinson, Maxwell and Pabst, Hans},
+title = {{LIBXSMM}: Accelerating Small Matrix Multiplications by Runtime Code Generation},
+year = {2016},
+isbn = {9781467388153},
+doi = {10.5555/3014904.3015017},
+booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis},
+articleno = {84},
+numpages = {11},
+}
+
+
+@misc{MKL,
+title = {Intel{\textregistered} one{API} {M}ath {K}ernel {L}ibrary [{C}omputer software]},
+URL = {https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html},
+year={2023}
+}
+
+
+@article{Lathauwer2000,
+author = {Lathauwer, Lieven De and Moor, Bart De and Vandewalle, Joos},
+title = {On the Best Rank-1 and Rank-{(R$_1$,R$_2$,\ldots,R$_N$)} Approximation of Higher-Order Tensors},
+year = {2000},
+publisher = {Society for Industrial and Applied Mathematics},
+volume = {21},
+number = {4},
+doi = {10.1137/S0895479898346995},
+journal = {SIAM J. Matrix Anal. Appl.},
+pages = {1324--1342}
+}
+
+
+@InProceedings{Bassoy2019,
+author="Bassoy, Cem",
+title="Design of a High-Performance Tensor-Vector Multiplication with {BLAS}",
+booktitle="Computational Science -- ICCS 2019",
+year="2019",
+pages="32--45",
+isbn="978-3-030-22734-0",
+doi={10.1007/978-3-030-22734-0_3}
+}
+
+
+@article{Kjolstad2017,
+ author = {Kjolstad, Fredrik and Kamil, Shoaib and Chou, Stephen and Lugato, David and Amarasinghe, Saman},
+ title = {The Tensor Algebra Compiler},
+ journal = {Proc. ACM Program. Lang.},
+ issue_date = {October 2017},
+ volume = {1},
+ month = oct,
+ year = {2017},
+ issn = {2475-1421},
+ pages = {77:1--77:29},
+ articleno = {77},
+ numpages = {29},
+ doi = {10.1145/3133901},
+ acmid = {3133901},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+
+@article{Springer2018,
+author = {Springer, Paul and Bientinesi, Paolo},
+title = {Design of a High-Performance {GEMM}-like Tensor--Tensor Multiplication},
+year = {2018},
+issue_date = {April 2018},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {44},
+number = {3},
+issn = {0098-3500},
+doi = {10.1145/3157733},
+journal = {ACM Trans. Math. Softw.},
+month = jan,
+articleno = {28},
+numpages = {29},
+keywords = {tensor contractions, Domain-specific code generator, high-performance computing, matrix--matrix multiplication}
+}
+
+
+@article{Matthews2018,
+  doi = {10.1137/16m108968x},
+  year = {2018},
+  month = jan,
+  publisher = {Society for Industrial {\&} Applied Mathematics ({SIAM})},
+  volume = {40},
+  number = {1},
+  pages = {C1--C24},
+  author = {Devin A. Matthews},
+  title = {High-Performance Tensor Contraction without Transposition},
+  journal = {{SIAM} Journal on Scientific Computing}
+}
+
+
+@article{Martinez2021,
+  doi = {10.1137/10.24433/CO.9368326.v1},
+  year = {2021},
+  publisher = {},
+  number = {},
+  pages = {},
+  author = {Pedro J. Martinez-Ferrer},
+  title = {{TVM} library [{C}omputer software]},
+  journal = {}
+}
+
+
+@misc{MartinezTVC,
+  doi = {},
+  year = {To be released},
+  publisher = {},
+  number = {},
+  pages = {},
+  author = {Pedro J. Martinez-Ferrer},
+  title = {{TVC} library [{C}omputer software]},
+  journal = {},
+  URL = {}
+}
+
+
+@misc{Half22,
+  doi = {},
+  year = {2023},
+  publisher = {},
+  number = {},
+  pages = {},
+  author = {Christian Rau},
+  title = {{IEEE} 754-based half-precision floating-point library [{C}omputer software]},
+  journal = {},
+  URL = {https://half.sourceforge.net}
+}
+
+
+@inproceedings{Kang2012,
+author = {Kang, U. and Papalexakis, Evangelos and Harpale, Abhay and Faloutsos, Christos},
+title = {GigaTensor: Scaling Tensor Analysis up by 100 Times - Algorithms and Discoveries},
+year = {2012},
+isbn = {9781450314626},
+doi = {10.1145/2339530.2339583},
+booktitle = {Proceedings of the 18th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+pages = {316--324},
+numpages = {9},
+keywords = {tensor, mapreduce, hadoop, big data, distributed computing},
+location = {Beijing, China},
+}
+
+
+@inproceedings{Park2016,
+author = {Park, Namyong and Jeon, Byungsoo and Lee, Jungwoo and Kang, U},
+title = {{BIGtensor}: Mining Billion-Scale Tensor Made Easy},
+year = {2016},
+isbn = {9781450340731},
+doi = {10.1145/2983323.2983332},
+booktitle = {Proceedings of the 25th ACM International on Conference on Information and Knowledge Management},
+pages = {2457--2460},
+numpages = {4},
+keywords = {distributed computing, tensor, tensor decompositions},
+location = {Indianapolis, Indiana, USA},
+}
+
+
+@inproceedings{Blanco2018,
+author = {Blanco, Zachary and Liu, Bangtian and Dehnavi, Maryam Mehri},
+title = {{CSTF}: Large-Scale Sparse Tensor Factorizations on Distributed Platforms},
+year = {2018},
+isbn = {9781450365109},
+doi = {10.1145/3225058.3225133},
+booktitle = {Proceedings of the 47th International Conference on Parallel Processing},
+articleno = {21},
+numpages = {10},
+location = {Eugene, OR, USA},
+}
+
+
+@inproceedings{Calvin2015,
+author = {Calvin, Justus A. and Lewis, Cannada A. and Valeev, Edward F.},
+title = {Scalable Task-Based Algorithm for Multiplication of Block-Rank-Sparse Matrices},
+year = {2015},
+isbn = {9781450340014},
+doi = {10.1145/2833179.2833186},
+booktitle = {Proceedings of the 5th Workshop on Irregular Applications: Architectures and Algorithms},
+articleno = {4},
+numpages = {8},
+keywords = {H matrix, SUMMA, semiseparable matrix, tensor contraction, task parallelism, rank-structured, low-rank decomposition, matrix multiplication, matrix, irregular computation, distributed memory},
+location = {Austin, Texas},
+}
+
+
+@article{Solomonik2014,
+title = {A massively parallel tensor contraction framework for coupled-cluster computations},
+journal = {Journal of Parallel and Distributed Computing},
+volume = {74},
+number = {12},
+pages = {3176-3190},
+year = {2014},
+issn = {0743-7315},
+doi = {10.1016/j.jpdc.2014.06.002},
+author = {Edgar Solomonik and Devin Matthews and Jeff R. Hammond and John F. Stanton and James Demmel},
+keywords = {Coupled-cluster, Tensor contractions, Matrix multiplication, Topology-aware mapping, Communication-avoiding algorithms},
+}
+
+
+@book{Anderson1999,
+  title={LAPACK Users' Guide: Third Edition},
+  author={Anderson, E. and Bai, Z. and Bischof, C. and Blackford, S. and Demmel, J. and others},
+  isbn={9780898714470},
+  lccn={99048954},
+  year={1999},
+  publisher={Society for Industrial and Applied Mathematics}
+}
+
+
+@Inbook{Dongarra2011,
+author="Dongarra, Jack
+and Luszczek, Piotr",
+editor="Padua, David",
+title="ScaLAPACK",
+bookTitle="Encyclopedia of Parallel Computing",
+year="2011",
+pages="1773--1775",
+isbn="978-0-387-09766-4",
+doi="10.1007/978-0-387-09766-4_151"
+}
+
+
+@inproceedings{Harshman1970,
+  title={Foundations of the {PARAFAC} procedure: Models and conditions for an "explanatory" multi-model factor analysis},
+  author={Richard A. Harshman},
+  year={1970},
+  booktitle = {UCLA Working Papers in Phonetics},
+  volume = {16},
+  pages = {1--84}
+}
+
+
+@article{Shin2021,
+  doi = {10.3389/fdata.2020.594302},
+  year = {2021},
+  month = apr,
+  publisher = {Frontiers Media {SA}},
+  volume = {3},
+  author = {Kijung Shin and Bryan Hooi and Jisu Kim and Christos Faloutsos},
+  title = {Detecting Group Anomalies in Tera-Scale Multi-Aspect Data via Dense-Subtensor Mining},
+  journal = {Frontiers in Big Data}
+}
+
+
+@article{Martinez2023,
+title = {Improving the performance of classical linear algebra iterative methods via hybrid parallelism},
+journal = {Journal of Parallel and Distributed Computing},
+volume = {179},
+pages = {104711},
+year = {2023},
+issn = {0743-7315},
+doi = {10.1016/j.jpdc.2023.04.012},
+author = {Pedro J. Martinez-Ferrer and Tufan Arslan and Vicenç Beltran},
+keywords = {Linear algebra, Hybrid parallelism, Distributed-memory, Shared-memory, MPI},
+}
+
+
+@article{Khatri1968,
+ ISSN = {0581572X},
+ author = {C. G. Khatri and C. Radhakrishna Rao},
+ journal = {Sankhyā: The Indian Journal of Statistics, Series A (1961-2002)},
+ number = {2},
+ pages = {167--180},
+ publisher = {Springer},
+ title = {Solutions to Some Functional Equations and Their Applications to Characterization of Probability Distributions},
+ urldate = {2023-07-21},
+ volume = {30},
+ year = {1968}
+}
+
+
+@article{Dhiraj2019,
+author = {Dhiraj Kalamkar and Dheevatsa Mudigere and Naveen Mellempudi and Dipankar Das and Kunal Banerjee and others},
+title = {A Study Of {Bfloat16} For Deep Learning Training},
+year = {2019},
+doi = {10.48550/arxiv.1905.12322}
+}
+
+
+@inproceedings{Gupta2015,
+author = {Gupta, Suyog and Agrawal, Ankur and Gopalakrishnan, Kailash and Narayanan, Pritish},
+title = {Deep Learning with Limited Numerical Precision},
+year = {2015},
+publisher = {JMLR.org},
+booktitle = {Proceedings of the 32nd International Conference on International Conference on Machine Learning - Volume 37},
+pages = {1737--1746},
+numpages = {10},
+location = {Lille, France},
+series = {ICML'15},
+doi = {10.5555/3045118.3045303}
+}
+
+
+@article{Walker1994,
+title = {The design of a standard message passing interface for distributed memory concurrent computers},
+journal = {Parallel Computing},
+volume = {20},
+number = {4},
+pages = {657-673},
+year = {1994},
+issn = {0167-8191},
+doi = {10.1016/0167-8191(94)90033-7},
+author = {David W. Walker},
+}
+
+
+@article{Dagum1998,
+  author={Dagum, L. and Menon, R.},
+  journal={IEEE Computational Science and Engineering},
+  title={{OpenMP}: an industry standard {API} for shared-memory programming},
+  year={1998},
+  volume={5},
+  number={1},
+  pages={46-55},
+  doi={10.1109/99.660313}
+}
+
+@misc{bots_benchmark_suit,
+    title={Bots benchmark suite source},
+    url = {https://pm.bsc.es/gitlab/benchmarks/bots}
+}
+
+@book{ISO_CPP_20,
+  title={International Standard ISO/IEC 14882:2020(E) -- Programming Language C++},
+  author={{International Organization for Standardization}},
+  year={2020},
+  publisher={ISO/IEC},
+  address={Geneva, Switzerland},
+  note={Also known as C++20}
+}
+
+@article{10.1109/99.660313,
+author = {Dagum, Leonardo and Menon, Ramesh},
+title = {OpenMP: An Industry-Standard API for Shared-Memory Programming},
+year = {1998},
+issue_date = {January 1998},
+publisher = {IEEE Computer Society Press},
+address = {Washington, DC, USA},
+volume = {5},
+number = {1},
+issn = {1070-9924},
+doi = {10.1109/99.660313},
+abstract = {The authors present a new way to achieve scalability in parallel software with OpenMP, their portable alternative to message passing. They discuss its capabilities through specific examples and comparisons with other standard parallel programming models.},
+journal = {IEEE Comput. Sci. Eng.},
+month = jan,
+pages = {46–55},
+numpages = {10}
+}
+
+
+
+@inproceedings{10.1145/2935764.2935787,
+author = {Yang, Chaoran and Mellor-Crummey, John},
+title = {A Practical Solution to the Cactus Stack Problem},
+year = {2016},
+isbn = {9781450342100},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+doi = {10.1145/2935764.2935787},
+abstract = {Work-stealing is a popular method for load-balancing dynamic multithreaded computations on shared-memory systems. In theory, a randomized work-stealing scheduler can achieve near linear speedup when the computation has sufficient parallelism and requires stack space that is linear in the number of processors. In practice, however, work-stealing runtimes sacrifice interoperability with serial code to achieve these bounds. For example, both Cilk and Cilk++ prohibit a C function from calling aCilk function. Other work-stealing runtime systems that do not have this restriction either lack a strong time bound, which might cause them to deliver little or no speedup in the worst case, or lack a strong space bound, which might lead to an excessive memory footprint. This problem was previously described as the cactus stack problem.In this paper, we present Fibril, a new multithreading library that supports a fork-join programming model using work-stealing. Fibril solves the cactus stack problem by (1) implementing on a cactus stack that conforms to the calling conventions of serial code and (2) returning unused memory pages of suspended stacks to the operating system to bound consumption of physical memory. Theoretically, Fibril achieves strong bounds on both time and memory usage without sacrificing interoperability with serial code. Empirically, Fibril achieves up to 3x the performance of Intel Cilk Plus and up to 8x the performance of Intel Threading Building Blocks for the 12 benchmarks we evaluated.},
+booktitle = {Proceedings of the 28th ACM Symposium on Parallelism in Algorithms and Architectures},
+pages = {61–70},
+numpages = {10},
+keywords = {work-stealing, interoperability, cactus stack},
+location = {Pacific Grove, California, USA},
+series = {SPAA '16}
+}
+
+@ARTICLE{86103,
+  author={Mohr, E. and Kranz, D.A. and Halstead, R.H.},
+  journal={IEEE Transactions on Parallel and Distributed Systems}, 
+  title={Lazy task creation: a technique for increasing the granularity of parallel programs}, 
+  year={1991},
+  volume={2},
+  number={3},
+  pages={264-280},
+  keywords={Programming profession;Costs;Program processors;Parallel algorithms;Concurrent computing;Parallel processing;Computer science;Robustness;Statistics;Partitioning algorithms},
+  doi={10.1109/71.86103}}
+
+
+@INPROCEEDINGS{8665757,
+  author={Iwasaki, Shintaro and Amer, Abdelhalim and Taura, Kenjiro and Balaji, Pavan},
+  booktitle={SC18: International Conference for High Performance Computing, Networking, Storage and Analysis}, 
+  title={Lessons Learned from Analyzing Dynamic Promotion for User-Level Threading}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={293-304},
+  keywords={Context;Registers;Instruction sets;Switches;Programming;Libraries;Concurrent computing},
+  doi={10.1109/SC.2018.00026}}
+
+
+@article{iwasaki2020,
+  title={Analyzing the performance trade-off in implementing user-level threads},
+  author={Iwasaki, Shintaro and Amer, Abdelhalim and Taura, Kenjiro and Balaji, Pavan},
+  journal={IEEE Transactions on Parallel and Distributed Systems},
+  volume={31},
+  number={8},
+  pages={1859--1877},
+  year={2020},
+  publisher={IEEE}
+}
+
+@article{abt2018,
+  author={Seo, Sangmin and Amer, Abdelhalim and Balaji, Pavan and Bordage, Cyril and Bosilca, George and Brooks, Alex and Carns, Philip and Castelló, Adrián and Genet, Damien and Herault, Thomas and Iwasaki, Shintaro and Jindal, Prateek and Kalé, Laxmikant V. and Krishnamoorthy, Sriram and Lifflander, Jonathan and Lu, Huiwei and Meneses, Esteban and Snir, Marc and Sun, Yanhua and Taura, Kenjiro and Beckman, Pete},
+  journal={IEEE Transactions on Parallel and Distributed Systems}, 
+  title={Argobots: A Lightweight Low-Level Threading and Tasking Framework}, 
+  year={2018},
+  volume={29},
+  number={3},
+  pages={512-526},
+  keywords={Runtime;Message systems;Interoperability;Context;Libraries;Synchronization;Argobots;user-level thread;tasklet;OpenMP;MPI;I/O;interoperability;lightweight;context switch;stackable scheduler},
+  doi={10.1109/TPDS.2017.2766062}
+}
+
+@misc{futexswap,
+  title = {{LKML}: {Peter} {Oskolkov}: [{PATCH} for 5.9 0/3] {FUTEX}\_SWAP (tip/locking/core)},
+  url = {https://lkml.org/lkml/2020/7/22/1202},
+  urldate = {2024-10-10},
+}
+
+@misc{umcg,
+  title = {[{PATCH} v0.9.1 5/6] sched/umcg: add {Documentation}/userspace-api/umcg.txt - {Peter} {Oskolkov}},
+  url = {https://lore.kernel.org/all/20211122211327.5931-6-posk@google.com/#r},
+  author = {{Peter Oskolkov}},
+  urldate = {2024-10-10},
+}
+
+@misc{lpcult2013,
+  title = {User-level threads....... with threads. - {Paul} {Turner} - {Google}},
+  url = {https://www.youtube.com/watch?v=KXuZi9aeGTw},
+  urldate = {2024-10-10},
+  author = {{Paul Turner}},
+  month = oct,
+  year = {2013},
+}
+
+@misc{lwnschedext,
+  title = {Sched\_ext at {LPC} 2024 [{LWN}.net]},
+  url = {https://lwn.net/Articles/991205/},
+  urldate = {2024-10-10},
+  author = {{Jonathan Corbet}},
+}
+@misc{ebpf,
+      title={The eBPF Runtime in the Linux Kernel}, 
+      author={Bolaji Gbadamosi and Luigi Leonardi and Tobias Pulls and Toke Høiland-Jørgensen and Simone Ferlin-Reiter and Simo Sorce and Anna Brunström},
+      year={2024},
+      eprint={2410.00026},
+      archivePrefix={arXiv},
+      primaryClass={cs.OS},
+      url={https://arxiv.org/abs/2410.00026}, 
+}
+
+@misc{openmp50,
+    author = {{OpenMP Architecture Review Board}},
+    title = {{OpenMP} Application Program Interface Version 5.0},
+    month = nov,
+    year = 2018,
+    url = {https://www.openmp.org/wp-content/uploads/OpenMP-API-Specification-5.0.pdf}
+}
+
+@online{OpenMPSupportClang,
+  title = {{{OpenMP Support}} — {{Clang libomp runtime}}},
+  author = {{The Clang Team}},
+  url = {https://clang.llvm.org/docs/OpenMPSupport.html},
+  urldate = {2025-06-02},
+  file = {/home/vincent/Zotero/storage/3S9PUE2A/OpenMPSupport.html}
+}
+
+@inproceedings{muddukrishnaTaskSchedulingManycore2013,
+  title = {Task {{Scheduling}} on {{Manycore Processors}} with {{Home Caches}}},
+  booktitle = {Euro-{{Par}} 2012: {{Parallel Processing Workshops}}},
+  author = {Muddukrishna, Ananya and Podobas, Artur and Brorsson, Mats and Vlassov, Vladimir},
+  year = {2013},
+  pages = {357--367},
+  publisher = {Springer, Berlin, Heidelberg},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-642-36949-0_39},
+  urldate = {2025-06-02},
+  isbn = {978-3-642-36949-0},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/F5JR6BWX/Muddukrishna et al. - 2013 - Task Scheduling on Manycore Processors with Home Caches.pdf}
+}
+
+@article{maronasMitigatingNUMAEffect2023,
+  title = {Mitigating the {{NUMA}} Effect on Task-Based Runtime Systems},
+  author = {Maroñas, Marcos and Navarro, Antoni and Ayguadé, Eduard and Beltran, Vicenç},
+  date = {2023-09-01},
+  journaltitle = {The Journal of Supercomputing},
+  volume = {79},
+  number = {13},
+  pages = {14287--14312},
+  publisher = {Springer US},
+  issn = {1573-0484},
+  doi = {10.1007/s11227-023-05164-9},
+  url = {https://link.springer.com/article/10.1007/s11227-023-05164-9},
+  urldate = {2025-05-26},
+  abstract = {Processors with multiple sockets or chiplets are becoming more conventional. These kinds of processors usually expose a single shared address space. However, due to hardware restrictions, they adopt a NUMA approach, where each processor accesses local memory faster than remote memories. Reducing data motion is crucial to improve the overall performance. Thus, computations must run as close as possible to where the data resides. We propose a new approach that mitigates the NUMA effect on NUMA systems. Our solution is based on the OmpSs-2 programming model, a task-based parallel programming model, similar to OpenMP. We first provide a simple API to allocate memory in NUMA systems using different policies. Then, combining user-given information that specifies dependences between tasks, and information collected in a global directory when allocating data, we extend our runtime library to perform NUMA-aware work scheduling. Our heuristic considers data location, distance between NUMA nodes, and the load of each NUMA node to seamlessly minimize data motion costs and load imbalance. Our evaluation shows that our NUMA support can significantly mitigate the NUMA effect by reducing the amount of remote accesses, and so improving performance on most benchmarks, reaching up to 2x speedup in a 2-NUMA machine, and up to 7.1x in a 8-NUMA machine.},
+  issue = {13},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/VMYDMXJY/Maroñas et al. - 2023 - Mitigating the NUMA effect on task-based runtime systems.pdf}
+}
+
+@incollection{klinkenbergAssessingTasktoDataAffinity2018a,
+  title = {Assessing {{Task-to-Data Affinity}} in the {{LLVM OpenMP Runtime}}},
+  booktitle = {Evolving {{OpenMP}} for {{Evolving Architectures}}},
+  author = {Klinkenberg, Jannis and Samfass, Philipp and Terboven, Christian and Duran, Alejandro and Klemm, Michael and Teruel, Xavier and Mateo, Sergi and Olivier, Stephen L. and Müller, Matthias S.},
+  editor = {De Supinski, Bronis R. and Valero-Lara, Pedro and Martorell, Xavier and Mateo Bellido, Sergi and Labarta, Jesus},
+  date = {2018},
+  volume = {11128},
+  pages = {236--251},
+  publisher = {Springer International Publishing},
+  location = {Cham},
+  doi = {10.1007/978-3-319-98521-3_16},
+  url = {http://link.springer.com/10.1007/978-3-319-98521-3_16},
+  urldate = {2025-06-01},
+  abstract = {In modern shared-memory NUMA systems which typically consist oftwo or more multi-core processor packages with local memory, affinity of data to computation is crucial for achieving high performance with an OpenMP program. OpenMP* 3.0 introduced support for task-parallel programs in 2008 and has continued to extend its applicability and expressiveness. However, the ability to support data affinity of tasks is missing.In this paper, we investigate several approaches for task-to-data affinity that combine locality-aware task distribution and task stealing. We introduce the task affinity clause that will be part of OpenMP 5.0 and provide the reasoning behind its design. Evaluation with our experimental implementation in the LLVM OpenMP runtime shows that task affinity improves execution performance up to 4.5 x on an 8-socket NUMA machine and significantly reduces runtime variability of OpenMP tasks. Our results demonstrate that a variety of applications can benefit from task affinity and that the presented clause is closing the gap of task-to-data affinity in OpenMP 5.0.},
+  isbn = {978-3-319-98520-6 978-3-319-98521-3},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/6QM3CXKN/Klinkenberg et al. - 2018 - Assessing Task-to-Data Affinity in the LLVM OpenMP Runtime.pdf}
+}
+
+@online{andreyOpenMPLibompPriority,
+  title = {[{{OpenMP}}] Libomp: Implemented Task Priorities. · Llvm/Llvm-Project \@ 6d9eb7e},
+  shorttitle = {Libomp: Implemented Task Priorities},
+  author = {Andrey, Churbanov},
+  url = {https://github.com/llvm/llvm-project/commit/6d9eb7e7ec09c628441db02f6306a3d5ff87c5fb},
+  urldate = {2025-06-02},
+  file = {/home/vincent/Zotero/storage/823DYUJU/6d9eb7e7ec09c628441db02f6306a3d5ff87c5fb.html}
+}
+
+@misc{openmp50,
+    author = {{OpenMP Architecture Review Board}},
+    title = {{OpenMP} Application Program Interface Version 5.0},
+    month = nov,
+    year = 2018,
+    url = {https://www.openmp.org/wp-content/uploads/OpenMP-API-Specification-5.0.pdf}
+}
+
+@misc{openmp40,
+    author = {{OpenMP Architecture Review Board}},
+    title = {{OpenMP} Application Program Interface Version 4.0},
+    month = jul,
+    year = 2013,
+    url = {https://www.openmp.org/wp-content/uploads/OpenMP4.0.0.pdf}
+}
+
+@misc{openmp45,
+    author = {{OpenMP Architecture Review Board}},
+    title = {{OpenMP} Application Program Interface Version 4.5},
+    month = nov,
+    year = 2015,
+    url = {https://www.openmp.org/wp-content/uploads/openmp-4.5.pdf}
+}
+
+@online{OpenMPSupportClang,
+  title = {{{OpenMP Support}} — {{Clang libomp runtime}}},
+  author = {{The Clang Team}},
+  url = {https://clang.llvm.org/docs/OpenMPSupport.html},
+  urldate = {2025-06-02},
+  file = {/home/vincent/Zotero/storage/3S9PUE2A/OpenMPSupport.html}
+}
+
+@inproceedings{terbovenApproachesTaskAffinity2016,
+  title = {Approaches for {{Task Affinity}} in {{OpenMP}}},
+  booktitle = {{{OpenMP}}: {{Memory}}, {{Devices}}, and {{Tasks}}},
+  author = {Terboven, Christian and Hahnfeld, Jonas and Teruel, Xavier and Mateo, Sergi and Duran, Alejandro and Klemm, Michael and Olivier, Stephen L. and family=Supinski, given=Bronis R., prefix=de, useprefix=true},
+  date = {2016},
+  pages = {102--115},
+  publisher = {Springer, Cham},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-319-45550-1_8},
+  url = {https://link-springer-com.recursos.biblioteca.upc.edu/chapter/10.1007/978-3-319-45550-1_8},
+  urldate = {2025-04-15},
+  abstract = {OpenMP tasking supports parallelization of irregular algorithms. Recent OpenMP specifications extended tasking to increase functionality and to support optimizations, for instance with the taskloop construct. However, task scheduling remains opaque, which leads to...},
+  eventtitle = {International {{Workshop}} on {{OpenMP}}},
+  isbn = {978-3-319-45550-1},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/S7I9FCY7/Terboven et al. - 2016 - Approaches for Task Affinity in OpenMP.pdf}
+}
+
+@online{libnumaman3,
+  title = {Numa(3) - {{Linux}} Manual Page},
+  author = {{Linux Programmer's Manual}},
+  url = {https://man7.org/linux/man-pages/man3/numa.3.html},
+  urldate = {2025-06-03},
+  file = {/home/vincent/Zotero/storage/C8VWSYJI/numa.3.html}
+}
+
+@online{Llvmlibomptaskingmodule,
+  title = {LLVM Project - kmp\_tasking.cpp Module},
+  author = {{LLVM Project}},
+  url = {https://github.com/llvm/llvm-project/blob/main/openmp/runtime/src/kmp_tasking.cpp},
+  urldate = {2025-06-04},
+  abstract = {The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. - llvm/llvm-project},
+  langid = {english},
+  organization = {GitHub}
+}
+
+@inproceedings{gautierImpactOpenMPTask2018a,
+  title = {On the {{Impact}} of {{OpenMP Task Granularity}}},
+  author = {Gautier, Thierry and Pérez, Christian and Richard, Jérôme},
+  date = {2018-09-26},
+  pages = {205},
+  publisher = {Springer},
+  doi = {10.1007/978-3-319-98521-3_14},
+  url = {https://inria.hal.science/hal-01901806},
+  urldate = {2025-06-04},
+  abstract = {Tasks are a good support for composition. During the development of a high-level component model for HPC, we have experimented to manage parallelism from components using OpenMP tasks. Since version 4-0, the standard proposes a model with dependent tasks that seems very attractive because it enables the description of dependencies between tasks generated by different components without breaking maintainability constraints such as separation of concerns. The paper presents our feedback on using OpenMP in our context. We discover that our main issues are a too coarse task granularity for our expected performance on classical OpenMP runtimes, and a harmful task throttling heuristic counter-productive for our applications. We present a completion time breakdown of task management in the Intel OpenMP runtime and propose extensions evaluated on a testbed application coming from the Gysela application in plasma physics.},
+  eventtitle = {{{IWOMP}} 2018 - 14th {{International Workshop}} on {{OpenMP}} for {{Evolving Architectures}}},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/2TACU9IN/Gautier et al. - 2018 - On the Impact of OpenMP Task Granularity.pdf}
+}
+
+@online{GccLibgompTaskc,
+  title = {GNU Offloading and Multi Processing Library
+   (libgomp) - task.c module},
+  author = {{GNU Project}},
+  url = {https://github.com/gcc-mirror/gcc/blob/master/libgomp/task.c},
+  urldate = {2025-06-04},
+  file = {/home/vincent/Zotero/storage/L5KAE4NJ/task.html}
+}
+
+@article{yuTaskgraphLowContention2023,
+  title = {Taskgraph: {{A Low Contention OpenMP Tasking Framework}}},
+  shorttitle = {Taskgraph},
+  author = {Yu, Chenle and Royuela, Sara and Quiñones, Eduardo},
+  date = {2023-08},
+  journaltitle = {IEEE Transactions on Parallel and Distributed Systems},
+  shortjournal = {IEEE Trans. Parallel Distrib. Syst.},
+  volume = {34},
+  number = {8},
+  pages = {2325--2336},
+  issn = {1045-9219, 1558-2183, 2161-9883},
+  doi = {10.1109/TPDS.2023.3284219},
+  url = {https://ieeexplore.ieee.org/document/10146446/},
+  urldate = {2025-06-04},
+  abstract = {OpenMP is the de-facto standard for shared memory systems in High-Performance Computing (HPC). It includes a tasking model that offers a high-level of abstraction to effectively exploit structured (loop-based) and highly dynamic unstructured (task-based) parallelism in an easy and flexible way. Unfortunately, the run-time overheads introduced to manage tasks are (very) high in most common OpenMP frameworks (e.g., GCC, LLVM), which defeats the potential benefits of the tasking model, and makes it suitable for coarse-grained tasks only. This paper presents taskgraph, a framework that uses a task dependency graph (TDG) to represent a region of code implemented with OpenMP tasks in order to reduce the run-time overheads associated with the management of tasks, i.e., contention and parallel orchestration, including task creation and synchronization. The TDG avoids the overheads related to the resolution of task dependencies and greatly reduces those deriving from accesses to shared resources. Moreover, the taskgraph framework introduces in OpenMP the record-and-replay execution model that accelerates the taskgraph region from its second execution. Overall, the multiple optimizations presented in this paper allow exploiting fine-grained OpenMP tasks to cope with the trend in current applications pointing to leverage massive on-node parallelism, fine-grained and dynamic scheduling paradigms. The framework is implemented on LLVM 15.0. Results show that the taskgraph implementation outperforms the vanilla OpenMP system in terms of performance and scalability, for all structured and unstructured parallelism, and considering coarse and fine grained tasks. Furthermore, the proposed framework makes the tasking model a competitive alternative to the OpenMP thread model in most cases.},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/A9I8ZE83/Yu et al. - 2023 - Taskgraph A Low Contention OpenMP Tasking Framework.pdf}
+}
+
+@inproceedings{salehianComparisonThreadingProgramming2017,
+  title = {Comparison of {{Threading Programming Models}}},
+  booktitle = {2017 {{IEEE International Parallel}} and {{Distributed Processing Symposium Workshops}} ({{IPDPSW}})},
+  author = {Salehian, Solmaz and Liu, Jiawen and Yan, Yonghong},
+  date = {2017-05},
+  pages = {766--774},
+  doi = {10.1109/IPDPSW.2017.141},
+  url = {https://ieeexplore.ieee.org/document/7965120},
+  urldate = {2025-06-02},
+  abstract = {In this paper, we provide comparison of language features and runtime systems of commonly used threading parallel programming models for high performance computing, including OpenMP, Intel Cilk Plus, Intel TBB, OpenACC, Nvidia CUDA, OpenCL, C++11 and PThreads. We then report our performance comparison of OpenMP, Cilk Plus and C++11 for data and task parallelism on CPU using benchmarks. The results show that the performance varies with respect to factors such as runtime scheduling strategies, overhead of enabling parallelism and synchronization, load balancing and uniformity of task workload among threads in applications. Our study summarizes and categorizes the latest development of threading programming APIs for supporting existing and emerging computer architectures, and provides tables that compare all features of different APIs. It could be used as a guide for users to choose the APIs for their applications according to their features, interface and performance reported.},
+  eventtitle = {2017 {{IEEE International Parallel}} and {{Distributed Processing Symposium Workshops}} ({{IPDPSW}})},
+  keywords = {Computational modeling,data parallelism,Graphics processing units,Instruction sets,memory abstraction,mutual exclusion,Parallel processing,parallel programming,Programming,Runtime,synchronization,task parallelism,threading,Tools},
+  file = {/home/vincent/Zotero/storage/G2HH4CCH/Salehian et al. - 2017 - Comparison of Threading Programming Models.pdf}
+}
+
+@article{duranProposalDependenciesOpenMP2009,
+  title = {A {{Proposal}} to {{Extend}} the {{OpenMP Tasking Model}} with {{Dependent Tasks}}},
+  author = {Duran, Alejandro and Ferrer, Roger and Ayguadé, Eduard and Badia, Rosa M. and Labarta, Jesus},
+  date = {2009-06-01},
+  journaltitle = {International Journal of Parallel Programming},
+  shortjournal = {Int J Parallel Prog},
+  volume = {37},
+  number = {3},
+  pages = {292--305},
+  publisher = {Springer US},
+  issn = {1573-7640},
+  doi = {10.1007/s10766-009-0101-1},
+  url = {https://link.springer.com/article/10.1007/s10766-009-0101-1},
+  urldate = {2025-06-05},
+  abstract = {Tasking in OpenMP 3.0 has been conceived to handle the dynamic generation of unstructured parallelism. New directives have been added allowing the user to identify units of independent work (tasks) and to define points to wait for the completion of tasks (task barriers). In this document we propose extensions to allow the runtime detection of dependencies between generated tasks, broading the range of applications that can benefit from tasking or improving the performance when load balancing or locality are critical issues for performance. The proposed extensions are evaluated on a SGI Altix multiprocessor architecture using a couple of small applications and a prototype runtime system implementation.},
+  issue = {3},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/UBNFCEUR/Duran et al. - 2009 - A Proposal to Extend the OpenMP Tasking Model with Dependent Tasks.pdf}
+}
+
+@inproceedings{jinAnalysisExplicitVs2018,
+  title = {Analysis of {{Explicit}} vs. {{Implicit Tasking}} in {{OpenMP Using Kripke}}},
+  booktitle = {2018 {{IEEE}}/{{ACM}} 4th {{International Workshop}} on {{Extreme Scale Programming Models}} and {{Middleware}} ({{ESPM2}})},
+  author = {Jin, Charles and Baskaran, Muthu},
+  date = {2018-11},
+  pages = {62--70},
+  doi = {10.1109/ESPM2.2018.00012},
+  url = {https://ieeexplore.ieee.org/document/8638481},
+  urldate = {2025-06-05},
+  abstract = {Dynamic task-based parallelism has become a widely-accepted paradigm in the quest for exascale computing. In this work, we deliver a non-trivial demonstration of the advantages of explicit over implicit tasking in OpenMP 4.5 in terms of both expressiveness and performance. We target the Kripke benchmark, a mini-application used to test the performance of discrete particle codes, and find that the dependence structure of the core “sweep” kernel is well-suited for dynamic task-based systems. Our results show that explicit tasking delivers a 31.7\% and 8.1\% speedup over a pure implicit implementation for a small and large problem, respectively, while a hybrid variant also underperforms the explicit variant by 13.1\% and 5.8\%, respectively.},
+  eventtitle = {2018 {{IEEE}}/{{ACM}} 4th {{International Workshop}} on {{Extreme Scale Programming Models}} and {{Middleware}} ({{ESPM2}})},
+  keywords = {Benchmark testing,Kripke,Mathematical model,OpenMP,Optimizing-Compiler,Parallel processing,Programming,Runtime,Syntactics,Task analysis,Tasks},
+  file = {/home/vincent/Zotero/storage/CXGMHVVA/Jin and Baskaran - 2018 - Analysis of Explicit vs. Implicit Tasking in OpenMP Using Kripke.pdf}
+}
+
+@incollection{adcockEvaluatingOpenMPTasking2013,
+  title = {Evaluating {{OpenMP Tasking}} at {{Scale}} for the {{Computation}} of {{Graph Hyperbolicity}}},
+  booktitle = {{{OpenMP}} in the {{Era}} of {{Low Power Devices}} and {{Accelerators}}},
+  author = {Adcock, Aaron B. and Sullivan, Blair D. and Hernandez, Oscar R. and Mahoney, Michael W.},
+  editor = {Rendell, Alistair P. and Chapman, Barbara M. and Müller, Matthias S.},
+  date = {2013},
+  volume = {8122},
+  pages = {71--83},
+  publisher = {Springer Berlin Heidelberg},
+  location = {Berlin, Heidelberg},
+  doi = {10.1007/978-3-642-40698-0_6},
+  url = {https://link.springer.com/10.1007/978-3-642-40698-0_6},
+  urldate = {2025-06-05},
+  abstract = {We describe using OpenMP to compute δ-hyperbolicity, a quantity of interest in social and information network analysis, at a scale that uses up to 1000 threads. By considering both OpenMP workshare and tasking models to parallelize the computations, we find that multiple task levels permits finer grained tasks at runtime and results in better performance at scale than worksharing constructs. We also characterize effects of task inflation, load balancing, and scheduling overhead in this application, using both GNU and Intel compilers. Finally, we show how OpenMP 3.1 tasking clauses can be used to mitigate overheads at scale.},
+  isbn = {978-3-642-40697-3 978-3-642-40698-0},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/3GTGL3QP/Adcock et al. - 2013 - Evaluating OpenMP Tasking at Scale for the Computation of Graph Hyperbolicity.pdf}
+}
+
+@inproceedings{ayguadeProposalTaskParallelism2008,
+  title = {A {{Proposal}} for {{Task Parallelism}} in {{OpenMP}}},
+  booktitle = {A {{Practical Programming Model}} for the {{Multi-Core Era}}},
+  author = {Ayguadé, Eduard and Copty, Nawal and Duran, Alejandro and Hoeflinger, Jay and Lin, Yuan and Massaioli, Federico and Su, Ernesto and Unnikrishnan, Priya and Zhang, Guansong},
+  date = {2008},
+  pages = {1--12},
+  publisher = {Springer, Berlin, Heidelberg},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-540-69303-1_1},
+  url = {https://link.springer.com/chapter/10.1007/978-3-540-69303-1_1},
+  urldate = {2025-06-04},
+  abstract = {This paper presents a novel proposal to define task parallelism in OpenMP. Task parallelism has been lacking in the OpenMP language for a number of years already. As we show, this makes certain kinds of applications difficult to parallelize, inefficient or both. A...},
+  eventtitle = {International {{Workshop}} on {{OpenMP}}},
+  isbn = {978-3-540-69303-1},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/5MKUAQZX/Ayguadé et al. - 2008 - A Proposal for Task Parallelism in OpenMP.pdf}
+}
+
+@inproceedings{salaALPIEnhancingPortability2024,
+  title = {{{ALPI}}: {{Enhancing Portability}} and {{Interoperability}} of {{Task-Aware Libraries}}},
+  shorttitle = {{{ALPI}}},
+  booktitle = {Asynchronous {{Many-Task Systems}} and {{Applications}}},
+  author = {Sala, Kevin and Álvarez, David and Peñacoba, Raúl and Arias Mallo, Rodrigo and Navarro, Antoni and Roca, Aleix and Beltran, Vicenç},
+  date = {2024},
+  pages = {142--153},
+  publisher = {Springer, Cham},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-031-61763-8_14},
+  url = {https://link.springer.com/chapter/10.1007/978-3-031-61763-8_14},
+  urldate = {2025-06-05},
+  abstract = {Task-based programming models are a promising approach to exploiting complex distributed and heterogeneous systems. However, integrating different communication, offloading, and storage APIs within tasks poses performance and deadlock risks. Several Task-Aware...},
+  eventtitle = {Workshop on {{Asynchronous Many-Task Systems}} and {{Applications}}},
+  isbn = {978-3-031-61763-8},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/I24UTS43/Sala et al. - 2024 - ALPI Enhancing Portability and Interoperability of Task-Aware Libraries.pdf}
+}
+
+@online{SpecificationOmpSs2202411,
+  title = {Specification of {{OmpSs-2}} 2024.11 — {{Specification}} of {{OmpSs-2}} 2024.11},
+  url = {https://pm.bsc.es/ftp/ompss-2/doc/spec/},
+  urldate = {2025-06-05},
+  file = {/home/vincent/Zotero/storage/48JZVWDB/spec.html}
+}
+
+@inproceedings{fernandezTaskBasedProgrammingOmpSs2014b,
+  title = {Task-{{Based Programming}} with {{OmpSs}} and {{Its Application}}},
+  booktitle = {Euro-{{Par}} 2014: {{Parallel Processing Workshops}}},
+  author = {Fernández, Alejandro and Beltran, Vicenç and Martorell, Xavier and Badia, Rosa M. and Ayguadé, Eduard and Labarta, Jesus},
+  date = {2014},
+  pages = {601--612},
+  publisher = {Springer, Cham},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-319-14313-2_51},
+  url = {https://link.springer.com/chapter/10.1007/978-3-319-14313-2_51},
+  urldate = {2025-06-04},
+  abstract = {OmpSs is a task-based programming model that aims to provide portability and flexibility for sequential codes while the performance is achieved by the dynamic exploitation of the parallelism at task level. OmpSs targets the programming of heterogeneous and multi-core...},
+  eventtitle = {European {{Conference}} on {{Parallel Processing}}},
+  isbn = {978-3-319-14313-2},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/BQ5MMJDJ/Fernández et al. - 2014 - Task-Based Programming with OmpSs and Its Application.pdf}
+}
+
+@inproceedings{salaDataFlowParallelizationAdaptive2020,
+  title = {Towards {{Data-Flow Parallelization}} for {{Adaptive Mesh Refinement Applications}}},
+  booktitle = {2020 {{IEEE International Conference}} on {{Cluster Computing}} ({{CLUSTER}})},
+  author = {Sala, Kevin and Rico, Alejandro and Beltran, Vicenç},
+  date = {2020-09},
+  pages = {314--325},
+  issn = {2168-9253},
+  doi = {10.1109/CLUSTER49012.2020.00042},
+  url = {https://ieeexplore-ieee-org.recursos.biblioteca.upc.edu/document/9229616},
+  urldate = {2025-06-05},
+  abstract = {Adaptive Mesh Refinement (AMR) is a prevalent method used by distributed-memory simulation applications to adapt the accuracy of their solutions depending on the turbulent conditions in each of their domain regions. These applications are usually dynamic since their domain areas are refined or coarsened in various refinement stages during their execution. Thus, they periodically redistribute their workloads among processes to avoid load imbalance. Although the defacto standard for scientific computing in distributed environments is MPI, in recent years, pure MPI applications are being ported to hybrid ones, attempting to cope with modern multi-core systems. Recently, the Task-Aware MPI library was proposed to efficiently integrate MPI communications and tasking models, providing also the transparent management of communications issued by tasks. In this paper, we demonstrate the benefits of porting AMR applications to data-flow programming models leveraging that novel hybrid approach. We exploit most of the application parallelism by taskifying all stages, allowing their natural overlap. We employ these techniques on the miniAMR proxy application, which mimics the refinement, load balancing, communication, and computation patterns of general AMR applications. We evaluate how this approach reduces the time in its computation and communication phases while achieving better programmability than other conventional hybrid techniques.},
+  eventtitle = {2020 {{IEEE International Conference}} on {{Cluster Computing}} ({{CLUSTER}})},
+  keywords = {Adaptive mesh refinement,Adaptive Mesh Refinement,AMR,Computational modeling,Data-Flow,Load modeling,miniAMR,MPI,OmpSs-2,OpenMP,Programming,Scientific computing,Standards,TAMPI,Task analysis,Tasks},
+  file = {/home/vincent/Zotero/storage/UJPBM5HD/Sala et al. - 2020 - Towards Data-Flow Parallelization for Adaptive Mesh Refinement Applications.pdf}
+}
+
+@article{salaIntegratingBlockingNonblocking2019,
+  title = {Integrating Blocking and Non-Blocking {{MPI}} Primitives with Task-Based Programming Models},
+  author = {Sala, Kevin and Teruel, Xavier and Perez, Josep M. and Peña, Antonio J. and Beltran, Vicenç and Labarta, Jesus},
+  date = {2019-07-01},
+  journaltitle = {Parallel Computing},
+  shortjournal = {Parallel Computing},
+  volume = {85},
+  pages = {153--166},
+  issn = {0167-8191},
+  doi = {10.1016/j.parco.2018.12.008},
+  url = {https://www.sciencedirect.com/science/article/pii/S0167819118303326},
+  urldate = {2025-06-06},
+  abstract = {In this paper we present the Task-Aware MPI library (TAMPI) that integrates both blocking and non-blocking MPI primitives with task-based programming models. The TAMPI library leverages two new runtime APIs to improve both programmability and performance of hybrid applications. The first API allows to pause and resume the execution of a task depending on external events. This API is used to improve the interoperability between blocking MPI communication primitives and tasks. When an MPI operation executed inside a task blocks, the task running is paused so that the runtime system can schedule a new task on the core that became idle. Once the blocked MPI operation is completed, the paused task is put again on the runtime system’s ready queue, so eventually it will be scheduled again and its execution will be resumed. The second API defers the release of dependencies associated with a task completion until some external events are fulfilled. This API is composed only of two functions, one to bind external events to a running task and another function to notify about the completion of external events previously bound. TAMPI leverages this API to bind non-blocking MPI operations with tasks, deferring the release of their task dependencies until both task execution and all its bound MPI operations are completed. Our experiments reveal that the enhanced features of TAMPI not only simplify the development of hybrid MPI+OpenMP applications that use blocking or non-blocking MPI primitives but they also naturally overlap computation and communication phases, which improves application performance and scalability by removing artificial dependencies across communication tasks.},
+  keywords = {Interoperability,MPI,OmpSs-2,OpenMP,TAMPI,Task},
+  file = {/home/vincent/Zotero/storage/QGMIG8M5/Sala et al. - 2019 - Integrating blocking and non-blocking MPI primitives with task-based programming models.pdf;/home/vincent/Zotero/storage/3IPWI3PL/S0167819118303326.html}
+}
+
+@software{BscpmNodes2024,
+  title = {NODES - {{OmpSs-2}} Dependency System},
+  author = {{BSC - Programming Models}},
+  date = {2024-11-15T14:03:57Z},
+  origdate = {2023-04-18T09:43:48Z},
+  url = {https://github.com/bsc-pm/nodes},
+  urldate = {2025-06-06},
+  abstract = {NODES is a library that works on top of nOS-V to implement the OmpSs-2 parallel programming model, developed by the System Tools and Advanced Runtimes (STAR) group at the Barcelona Supercomputing Center.},
+  organization = {BSC - Programming Models}
+}
+
+@inproceedings{alvarezNOSVCoExecutingHPC2024a,
+  title = {{{nOS-V}}: {{Co-Executing HPC Applications Using System-Wide Task Scheduling}}},
+  shorttitle = {{{nOS-V}}},
+  booktitle = {2024 {{IEEE International Parallel}} and {{Distributed Processing Symposium}} ({{IPDPS}})},
+  author = {Álvarez, David and Sala, Kevin and Beltran, Vicenç},
+  date = {2024-05},
+  pages = {312--324},
+  issn = {1530-2075},
+  doi = {10.1109/IPDPS57955.2024.00035},
+  url = {https://ieeexplore.ieee.org/document/10579254},
+  urldate = {2025-05-26},
+  abstract = {Future Exascale systems will feature massive parallelism, many-core processors and heterogeneous architectures. In this scenario, it is increasingly difficult for HPC applications to fully and efficiently utilize the resources in system nodes. Moreover, the increased parallelism exacerbates the effects of existing inefficiencies in current applications. Research has shown that co-scheduling applications to share system nodes instead of executing each application exclusively can increase resource utilization and efficiency. Nevertheless, the current oversubscription and co-location techniques to share nodes have several drawbacks which limit their applicability and make them very application-dependent.This paper presents co-execution through system-wide scheduling. Co-execution is a novel fine-grained technique to execute multiple HPC applications simultaneously on the same node, outperforming current state-of-the-art approaches. We implement this technique in nOS-V, a lightweight tasking library that supports co-execution through system-wide task scheduling. Moreover, nOS-V can be easily integrated with existing programming models, requiring no changes to user applications. We showcase how co-execution with nOS-V significantly reduces schedule makespan for several applications on different scenarios, outperforming prior node-sharing techniques.},
+  eventtitle = {2024 {{IEEE International Parallel}} and {{Distributed Processing Symposium}} ({{IPDPS}})},
+  keywords = {co-execution,co-location,Distributed processing,HPC,Parallel processing,parallel programming,Program processors,Programming,Runtime,Schedules,task-based programming,Throughput},
+  file = {/home/vincent/Zotero/storage/P5DMUCP4/Álvarez et al. - 2024 - nOS-V Co-Executing HPC Applications Using System-Wide Task Scheduling.pdf}
+}
+
+@inproceedings{alvarezAdvancedSynchronizationTechniques2021a,
+  title = {Advanced Synchronization Techniques for Task-Based Runtime Systems},
+  booktitle = {Proceedings of the 26th {{ACM SIGPLAN Symposium}} on {{Principles}} and {{Practice}} of {{Parallel Programming}}},
+  author = {Álvarez, David and Sala, Kevin and Maroñas, Marcos and Roca, Aleix and Beltran, Vincenç},
+  date = {2021-02-17},
+  series = {{{PPoPP}} '21},
+  pages = {334--347},
+  publisher = {Association for Computing Machinery},
+  location = {New York, NY, USA},
+  doi = {10.1145/3437801.3441601},
+  url = {https://dl.acm.org/doi/10.1145/3437801.3441601},
+  urldate = {2025-06-06},
+  abstract = {Task-based programming models like OmpSs-2 and OpenMP provide a flexible data-flow execution model to exploit dynamic, irregular and nested parallelism. Providing an efficient implementation that scales well with small granularity tasks remains a challenge, and bottlenecks can manifest in several runtime components. In this paper, we analyze the limiting factors in the scalability of a task-based runtime system and propose individual solutions for each of the challenges, including a wait-free dependency system and a novel scalable scheduler design based on delegation. We evaluate how the optimizations impact the overall performance of the runtime, both individually and in combination. We also compare the resulting runtime against state of the art OpenMP implementations, showing equivalent or better performance, especially for fine-grained tasks.},
+  isbn = {978-1-4503-8294-6},
+  file = {/home/vincent/Zotero/storage/P88ZZZC3/Álvarez et al. - 2021 - Advanced synchronization techniques for task-based runtime systems.pdf}
+}
+
+@article{dennardDesignIonimplantedMOSFETs1974,
+  title = {Design of Ion-Implanted {{MOSFET}}'s with Very Small Physical Dimensions},
+  author = {Dennard, R.H. and Gaensslen, F.H. and Yu, Hwa-Nien and Rideout, V.L. and Bassous, E. and LeBlanc, A.R.},
+  date = {1974-10},
+  journaltitle = {IEEE Journal of Solid-State Circuits},
+  volume = {9},
+  number = {5},
+  pages = {256--268},
+  issn = {1558-173X},
+  doi = {10.1109/JSSC.1974.1050511},
+  url = {https://ieeexplore-ieee-org.recursos.biblioteca.upc.edu/document/1050511},
+  urldate = {2025-06-09},
+  abstract = {This paper considers the design, fabrication, and characterization of very small Mosfet switching devices suitable for digital integrated circuits, using dimensions of the order of 1 /spl mu/. Scaling relationships are presented which show how a conventional MOSFET can be reduced in size. An improved small device structure is presented that uses ion implantation, to provide shallow source and drain regions and a nonuniform substrate doping profile. One-dimensional models are used to predict the substrate doping profile and the corresponding threshold voltage versus source voltage characteristic. A two-dimensional current transport model is used to predict the relative degree of short-channel effects for different device parameter combinations. Polysilicon-gate MOSFET's with channel lengths as short as 0.5 /spl mu/ were fabricated, and the device characteristics measured and compared with predicted values. The performance improvement expected from using these very small devices in highly miniaturized integrated circuits is projected.},
+  keywords = {Digital integrated circuits,Doping profiles,Fabrication,Ion implantation,Length measurement,MOSFET circuits,Predictive models,Semiconductor process modeling,Switching circuits,Threshold voltage},
+  file = {/home/vincent/Zotero/storage/FQLMWSRQ/Dennard et al. - 1974 - Design of ion-implanted MOSFET's with very small physical dimensions.pdf}
+}
+
+@article{lameterOverviewNonuniformMemory2013,
+  title = {An Overview of Non-Uniform Memory Access},
+  author = {Lameter, Christoph},
+  date = {2013-09-01},
+  journaltitle = {Commun. ACM},
+  volume = {56},
+  number = {9},
+  pages = {59--54},
+  issn = {0001-0782},
+  doi = {10.1145/2500468.2500477},
+  url = {https://dl.acm.org/doi/10.1145/2500468.2500477},
+  urldate = {2025-06-09},
+  abstract = {NUMA becomes more common because memory controllers get close to execution units on microprocessors.},
+  file = {/home/vincent/Zotero/storage/ALG23JP4/Lameter - 2013 - An overview of non-uniform memory access.pdf}
+}
+
+@inproceedings{naffzigerPioneeringChipletTechnology2021,
+  title = {Pioneering {{Chiplet Technology}} and {{Design}} for the {{AMD EPYC}}™ and {{Ryzen}}™ {{Processor Families}} : {{Industrial Product}}},
+  shorttitle = {Pioneering {{Chiplet Technology}} and {{Design}} for the {{AMD EPYC}}™ and {{Ryzen}}™ {{Processor Families}}},
+  booktitle = {2021 {{ACM}}/{{IEEE}} 48th {{Annual International Symposium}} on {{Computer Architecture}} ({{ISCA}})},
+  author = {Naffziger, Samuel and Beck, Noah and Burd, Thomas and Lepak, Kevin and Loh, Gabriel H. and Subramony, Mahesh and White, Sean},
+  date = {2021-06},
+  pages = {57--70},
+  issn = {2575-713X},
+  doi = {10.1109/ISCA52012.2021.00014},
+  url = {https://ieeexplore.ieee.org/document/9499852},
+  urldate = {2025-06-09},
+  abstract = {For decades, Moore’s Law has delivered the ability to integrate an exponentially increasing number of devices in the same silicon area at a roughly constant cost. This has enabled tremendous levels of integration, where the capabilities of computer systems that previously occupied entire rooms can now fit on a single integrated circuit.In recent times, the steady drum beat of Moore’s Law has started to slow down. Whereas device density historically doubled every 18-24 months, the rate of recent silicon process advancements has declined. While improvements in device scaling continue, albeit at a reduced pace, the industry is simultaneously observing increases in manufacturing costs.In response, the industry is now seeing a trend toward reversing direction on the traditional march toward more integration. Instead, multiple industry and academic groups are advocating that systems on chips (SoCs) be "disintegrated" into multiple smaller "chiplets." This paper details the technology challenges that motivated AMD to use chiplets, the technical solutions we developed for our products, and how we expanded the use of chiplets from individual processors to multiple product families.},
+  eventtitle = {2021 {{ACM}}/{{IEEE}} 48th {{Annual International Symposium}} on {{Computer Architecture}} ({{ISCA}})},
+  keywords = {Chiplets,Computer architecture,Industries,Industry,Modular,Moore’s Law,Packaging,Processors,Program processors,Routing,Silicon,System-on-chip},
+  file = {/home/vincent/Zotero/storage/LSTDDT6C/Naffziger et al. - 2021 - Pioneering Chiplet Technology and Design for the AMD EPYC™ and Ryzen™ Processor Families  Industria.pdf}
+}
+
+@inproceedings{nassifSapphireRapidsNextGeneration2022a,
+  title = {Sapphire {{Rapids}}: {{The Next-Generation Intel Xeon Scalable Processor}}},
+  shorttitle = {Sapphire {{Rapids}}},
+  booktitle = {2022 {{IEEE International Solid-State Circuits Conference}} ({{ISSCC}})},
+  author = {Nassif, Nevine and Munch, Ashley O. and Molnar, Carleton L. and Pasdast, Gerald and Lyer, Sitaraman V. and Yang, Zibing and Mendoza, Oscar and Huddart, Mark and Venkataraman, Srikrishnan and Kandula, Sireesha and Marom, Rafi and Kern, Alexandra M. and Bowhill, Bill and Mulvihill, David R. and Nimmagadda, Srikanth and Kalidindi, Varma and Krause, Jonathan and Haq, Mohammad M. and Sharma, Roopali and Duda, Kevin},
+  date = {2022-02},
+  volume = {65},
+  pages = {44--46},
+  issn = {2376-8606},
+  doi = {10.1109/ISSCC42614.2022.9731107},
+  url = {https://ieeexplore.ieee.org/document/9731107},
+  urldate = {2025-06-09},
+  abstract = {Sapphire Rapids (SPR) is the next-generation Xeon® Processor with increased core count, greater than 100MB shared L3 cache, 8 DDR5 channels, 32GT/s PCIe/CXL lanes, 16GT/s UPI lanes and integrated accelerators supporting cryptography, compression and data streaming. The processor is made up of 4 die (Fig. 2.2.7) manufactured on Intel 7 process technology which features dual-poly-pitch SuperFin (SF) transistors with performance enhancements beyond 10SF,{$>$}25\% additional MIM density over SuperMIM and a metal stack with a 400nm pitch routing layer optimized for global interconnects. This layer achieves 30\% delay reduction at the same signal density and is key for achieving the required latency. The core provides better performance via a programmable power management controller. New technologies include Intel Advanced Matrix Extensions (AMX), a matrix multiplication capability for acceleration of AI workloads and new virtualization technologies to address new and emerging workloads.},
+  eventtitle = {2022 {{IEEE International Solid-State Circuits Conference}} ({{ISSCC}})},
+  keywords = {Conferences,Delays,Integrated circuit interconnections,Metals,Power system management,Routing,Transistors},
+  file = {/home/vincent/Zotero/storage/EN2UQZ5X/Nassif et al. - 2022 - Sapphire Rapids The Next-Generation Intel Xeon Scalable Processor.pdf}
+}
+
+@article{mattioliRomeMilanAMD2021,
+  title = {Rome to {{Milan}}, {{AMD Continues Its Tour}} of {{Italy}}},
+  author = {Mattioli, Michael},
+  date = {2021-07},
+  journaltitle = {IEEE Micro},
+  volume = {41},
+  number = {4},
+  pages = {78--83},
+  issn = {1937-4143},
+  doi = {10.1109/MM.2021.3086541},
+  url = {https://ieeexplore.ieee.org/document/9473057},
+  urldate = {2025-06-09},
+  abstract = {AMD’s recently released EPYC 7003 series CPUs (codename Milan) deliver performance and power efficiency improvements over its previous generation of data center CPUs (codename Rome). Various architectural improvements were made such as an uplift from the Zen 2 core to the Zen 3 core, unifying the L3 cache, and adding security features. Relative to the competition, AMD’s latest data center CPUs are very competitive. However, the looming threat of vertical integration plagues the entire market.},
+  keywords = {Data centers,Energy efficiency,Games,Internet,Microarchitecture,Security,Tensors},
+  file = {/home/vincent/Zotero/storage/FYWVVN5J/Mattioli - 2021 - Rome to Milan, AMD Continues Its Tour of Italy.pdf}
+}
+
+@article{fogliOptimizingSortingChipletBased,
+  title = {Optimizing {{Sorting}} for {{Chiplet-Based CPUs}}},
+  author = {Fogli, Alessandro and Pietzuch, Peter and Giceva, Jana},
+  abstract = {This paper explores the challenges posed by modern chiplet-based CPU architectures in the context of sorting algorithms, a fundamental component of many computer science applications. We highlight how the heterogeneity introduced by chiplet-based processors—including varying access times to partitioned L3 caches, inter-core latencies, and bandwidths—can lead to suboptimal performance when using traditional sorting algorithms that assume uniform memory access and consistent processor performance. To address these issues, we propose a set of chiplet-aware optimizations designed to enhance the efficiency of memory-intensive sorting algorithms on these modern architectures. Our approach includes four key strategies: (1) partitioning input data at a chipletlevel granularity to minimize inter-chiplet communication and balance the computational load, (2) extending the memory hierarchy phase to account for distinct L3 cache partitions, (3) scheduling tasks based on data size relative to local and combined L3 cache capacities, and (4) avoiding expensive data shuffling. We provide a comprehensive analysis of chiplet architectures and detail chiplet-aware implementations of LSB Radix-Sort and Comparison Sort. Our evaluation demonstrates that chiplet-conscious sorting algorithms can enhance performance by up to 4.5× compared to NUMA-aware approaches.},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/YA362GII/Fogli et al. - Optimizing Sorting for Chiplet-Based CPUs.pdf}
+}
+
+@inproceedings{yangCacheawareTaskScheduling2010,
+  title = {Cache-Aware Task Scheduling on Multi-Core Architecture},
+  booktitle = {Proceedings of 2010 {{International Symposium}} on {{VLSI Design}}, {{Automation}} and {{Test}}},
+  author = {Yang, Teng-Feng and Lin, Chung-Hsiang and Yang, Chia-Lin},
+  date = {2010-04},
+  pages = {139--142},
+  doi = {10.1109/VDAT.2010.5496710},
+  url = {https://ieeexplore.ieee.org/document/5496710},
+  urldate = {2025-06-09},
+  abstract = {Cache utilization is critical to performance in a chip-multiprocessor(CMP) system. A typical cache hierarchy in a CMP contains per-core private cache and a large shared last-level cache. How to schedule tasks to improve cache utilization is challenging. In this paper, we propose a cache-aware scheduling policy which improves cache performance by considering data reuse, memory footprint of co-scheduled tasks, and coherency misses. The proposed scheduling policy is implemented in the scheduler of Threading Building Blocks(TBB), which is a multithreading library from Intel. The experimental results show that the proposed cache-aware task scheduling policy achieves up to 45\% execution time reduction compared with the original TBB scheduler.},
+  eventtitle = {2010 {{International Symposium}} on {{VLSI Design}}, {{Automation}} and {{Test}}},
+  keywords = {Computer architecture,Job shop scheduling,Libraries,Multicore processing,Multithreading,new,Processor scheduling},
+  file = {/home/vincent/Zotero/storage/96VQFRNY/Yang et al. - 2010 - Cache-aware task scheduling on multi-core architecture.pdf}
+}
+
+@article{bhargavaAMDNextGenerationZen2024,
+  title = {{{AMD Next-Generation}} “{{Zen}} 4” {{Core}} and 4th {{Gen AMD EPYC Server CPUs}}},
+  author = {Bhargava, Ravi and Troester, Kai},
+  date = {2024-05},
+  journaltitle = {IEEE Micro},
+  volume = {44},
+  number = {3},
+  pages = {8--17},
+  issn = {1937-4143},
+  doi = {10.1109/MM.2024.3375070},
+  url = {https://ieeexplore.ieee.org/document/10466769},
+  urldate = {2025-06-09},
+  abstract = {The 4th gen AMD EPYC server processor family brings the “Zen 4” core to the data center and cloud market and introduces a family of unique processors that leverage advanced chiplet architecture to efficiently optimize each processor to specific market needs. The “Zen 4” core is the latest generation of AMD’s high-performance and power-efficient x86 cores. Based on the “Zen 3” microarchitecture, it delivers a major step in power efficiency and performance with the inclusion of power-efficient AVX-512 support. The “Zen 4c” core further improves power efficiency by targeting a lower boost frequency. The 4th gen AMD EPYC processor family expands to include “Bergamo,” a high core-count, power-efficient, cloud-focused processor, and “Siena,” a high-capability processor with a streamlined, power-efficient form factor. These complement the record-breaking performance of “Genoa” and massive performance per core of “Genoa-X.” AMD’s customer-focused approach and chiplet design enable timely delivery of these industry-leading processors.},
+  keywords = {Charge coupled devices,Cloud computing,Computer architecture,Microarchitecture,Program processors,Servers,Throughput,Vectors},
+  file = {/home/vincent/Zotero/storage/72AZXYNB/Bhargava and Troester - 2024 - AMD Next-Generation “Zen 4” Core and 4th Gen AMD EPYC Server CPUs.pdf}
+}
+
+@online{lawendaEvaluatingImpactL32025,
+  title = {Evaluating the Impact of the {{L3}} Cache Size of {{AMD EPYC CPUs}} on the Performance of {{CFD}} Applications},
+  author = {Lawenda, Marcin and Szustak, Łukasz and Környei, László and Galeazzo, Flavio Cesar Cunha and Bratek, Paweł},
+  date = {2025-05-23},
+  eprint = {2505.17934},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2505.17934},
+  url = {http://arxiv.org/abs/2505.17934},
+  urldate = {2025-06-09},
+  abstract = {In this work, the authors focus on assessing the impact of the AMD EPYC processor architecture on the performance of CFD applications. Several generations of architectures were analyzed, such as Rome, Milan, Milan X, Genoa, Genoa X and Bergamo, characterized by a different number of cores (64-128), L3 cache size (256 - 1152 MB) and RAM type (8-channel DDR4 or 12-channel DDR5). The research was conducted based on the OpenFOAM application using two memory-bound models: motorBike and Urban Air Pollution. In order to compare the performance of applications on different architectures, the FVOPS (Finite VOlumes solved Per Second) metric was introduced, which allows a direct comparison of the performance on the different architectures. It was noticed that local maximum performance occurs in the grid sizes assigned to the processing process, which is related to individual processor attributes. Additionally, the behavior of the models was analyzed in detail using the software profiling analysis tool AMD uProf to reveal the applications' interaction with the hardware. It enabled fine-tuned monitoring of the CPU's behaviours and identified potential inefficiencies in AMD EPYC CPUs. Particular attention was paid to the effective use of L2 and L3 cache memory in the context of their capacity and the bandwidth of memory channels, which are a key factor in memory-bound applications. Processor features were analyzed from a cross-platform perspective, which allowed for the determination of metrics of particular importance in terms of their impact on the performance achieved by CFD applications.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Performance},
+  file = {/home/vincent/Zotero/storage/F4REYWBM/Lawenda et al. - 2025 - Evaluating the impact of the L3 cache size of AMD EPYC CPUs on the performance of CFD applications.pdf;/home/vincent/Zotero/storage/RLMUGJGK/2505.html}
+}
+
+@online{4thGenIntel,
+  title = {4th {{Gen Intel Xeon Processor Scalable Family}}, Sapphire Rapids},
+  url = {https://www.intel.com/content/www/us/en/developer/articles/technical/fourth-generation-xeon-scalable-family-overview.html},
+  urldate = {2025-06-09},
+  abstract = {A technical overview of the 4th Gen Intel® Xeon® Processor Scalable Family based on the formerly codenamed Sapphire Rapids architecture.},
+  langid = {english},
+  organization = {Intel},
+  file = {/home/vincent/Zotero/storage/J37VJRFJ/fourth-generation-xeon-scalable-family-overview.html}
+}
+
+@article{4thGenAMD,
+  title = {4th {{Gen AMD EPYC Processor Architecture}} Whitepaper},
+  organization = {AMD},
+  url = {https://www.amd.com/content/dam/amd/en/documents/products/epyc/4th-gen-epyc-processor-architecture-white-paper.pdf},
+  date = {2024-09},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/CQEWC3R8/4th Gen AMD EPYC Processor Architecture.pdf}
+}
+
+@online{EvaluationOpenMPTask,
+  title = {Evaluation of {{OpenMP Task Scheduling Algorithms}} for {{Large NUMA Architectures}} | {{SpringerLink}}},
+  url = {https://link-springer-com.recursos.biblioteca.upc.edu/chapter/10.1007/978-3-319-09873-9_50},
+  urldate = {2025-06-16},
+  file = {/home/vincent/Zotero/storage/Z854UXW9/978-3-319-09873-9_50.html}
+}
+
+@inproceedings{augonnetStarPUUnifiedPlatform2009b,
+  title = {{{StarPU}}: {{A Unified Platform}} for {{Task Scheduling}} on {{Heterogeneous Multicore Architectures}}},
+  shorttitle = {{{StarPU}}},
+  booktitle = {Euro-{{Par}} 2009 {{Parallel Processing}}},
+  author = {Augonnet, Cédric and Thibault, Samuel and Namyst, Raymond and Wacrenier, Pierre-André},
+  date = {2009},
+  pages = {863--874},
+  publisher = {Springer, Berlin, Heidelberg},
+  issn = {1611-3349},
+  doi = {10.1007/978-3-642-03869-3_80},
+  url = {https://link.springer.com/chapter/10.1007/978-3-642-03869-3_80},
+  urldate = {2025-06-16},
+  abstract = {In the field of HPC, the current hardware trend is to design multiprocessor architectures that feature heterogeneous technologies such as specialized coprocessors (e.g. Cell/BE SPUs) or data-parallel accelerators (e.g. GPGPUs). Approaching the theoretical performance...},
+  eventtitle = {European {{Conference}} on {{Parallel Processing}}},
+  isbn = {978-3-642-03869-3},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/QRML2EHT/Augonnet et al. - 2009 - StarPU A Unified Platform for Task Scheduling on Heterogeneous Multicore Architectures.pdf}
+}
+
+@online{AMDMProf,
+  title = {{{AMD uProf}}},
+  url = {https://www.amd.com/en/developer/uprof.html},
+  urldate = {2025-06-19},
+  langid = {english},
+  organization = {AMD},
+  file = {/home/vincent/Zotero/storage/E7T67X2W/uprof.html}
+}
+
+@online{BscpmOvniObtuse,
+  title = {Bsc-Pm/Ovni: {{Obtuse}} but {{Versatile Nanoscale Instrumentation}}},
+  author = {{BSC - Programming Models}},
+  url = {https://github.com/bsc-pm/ovni},
+  urldate = {2025-06-23},
+  file = {/home/vincent/Zotero/storage/8M2VLNRX/ovni.html}
+}
+
+
+
+@article{wylie15YearsJoint2025,
+  title = {15+ Years of Joint Parallel Application Performance Analysis/Tools Training with {{{\mkbibemph{Scalasca}}}}{\mkbibemph{/}}{{{\mkbibemph{Score-P}}}} and {{{\mkbibemph{Paraver}}}}{\mkbibemph{/}}{{{\mkbibemph{Extrae}}}} Toolsets},
+  author = {Wylie, Brian J. N. and Giménez, Judit and Feld, Christian and Geimer, Markus and Llort, Germán and Mendez, Sandra and Mercadal, Estanislao and Visser, Anke and García-Gasulla, Marta},
+  date = {2025-01-01},
+  journaltitle = {Future Generation Computer Systems},
+  shortjournal = {Future Generation Computer Systems},
+  volume = {162},
+  pages = {107472},
+  issn = {0167-739X},
+  doi = {10.1016/j.future.2024.07.050},
+  url = {https://www.sciencedirect.com/science/article/pii/S0167739X24004187},
+  urldate = {2025-06-23},
+  abstract = {The diverse landscape of distributed heterogeneous computer systems currently available and being created to address computational challenges with the highest performance requirements presents daunting complexity for application developers. They must effectively decompose and distribute their application functionality and data, efficiently orchestrating the associated communication and synchronisation, on multi/manycore CPU processors with multiple attached acceleration devices structured within compute nodes with interconnection networks of various topologies. Sophisticated compilers, runtime systems and libraries are (loosely) matched with debugging, performance measurement and analysis tools, with proprietary versions by integrators/vendors provided exclusively for their systems complemented by portable (primarily) open-source equivalents developed and supported by the international research community over many years. The Scalasca and Paraver toolsets are two widely employed examples of the latter, installed on personal notebook computers through to the largest leadership HPC systems. Over more than fifteen years their developers have worked closely together in numerous collaborative projects culminating in the creation of a universal parallel performance assessment and optimisation methodology focused on application execution efficiency and scalability, and the associated training and coaching of application developers (often in teams) in its productive use, reviewed in this article with lessons learnt therefrom.},
+  keywords = {Hands-on training & coaching,HPC application execution performance measurement & analysis,Hybrid parallel programming,MPI message-passing,OpenACC device offload acceleration,OpenMP multithreading,Performance assessment & optimisation methodology & tools},
+  file = {/home/vincent/Zotero/storage/CEKCXCJD/S0167739X24004187.html}
+}
+
+
+@online{ritchieCarbonIntensityElectricity2023,
+  title = {Data {{Page}}: {{Carbon}} Intensity of Electricity Generation},
+  author = {Ritchie, Hannah and Rosado, Pablo and Roser, Max},
+  date = {2023},
+  url = {https://ourworldindata.org/grapher/carbon-intensity-electricity},
+  urldate = {2025-06-19},
+  abstract = {Data adapted from Ember, Energy Institute},
+  organization = {Our World in Data}
+}
+
+@online{MareNostrum5GPP,
+  title = {{{MareNostrum}} 5 {{GPP}} - {{ThinkSystem SD650}} v3, {{Xeon Platinum 03H-LC 56C}} 1.{{7GHz}}, {{Infiniband NDR200}} | {{TOP500}}},
+  url = {https://www.top500.org/system/180237/},
+  urldate = {2025-06-19},
+  file = {/home/vincent/Zotero/storage/7KBYL2Q2/180237.html}
+}
+
+@article{shrivastavaCarbonFootprintLatitude,
+  title = {Carbon {{Footprint}} of a {{Dell Latitude E7440}}},
+  author = {Shrivastava, Puneet and Stutz, Markus},
+  langid = {english},
+  file = {/home/vincent/Zotero/storage/4UX2BSTF/Shrivastava and Stutz - Carbon Footprint of a Dell Latitude E7440.pdf}
+}
+@online{PricingComputeEngine,
+  title = {Pricing | {{Compute Engine}}: {{Virtual Machines}} ({{VMs}})},
+  shorttitle = {Pricing | {{Compute Engine}}},
+  url = {https://cloud.google.com/compute/all-pricing},
+  urldate = {2025-06-19},
+  abstract = {All Pricing Page},
+  langid = {english},
+  organization = {Google Cloud},
+  file = {/home/vincent/Zotero/storage/XY3HKUTT/all-pricing.html}
+}
