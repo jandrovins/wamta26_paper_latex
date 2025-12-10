@@ -1,6 +1,6 @@
 
 \section{Design of the Hierarchical Affinity Scheduler}
-\label{sec:free-agents}
+\label{sec:hafs-design}
 
 We present the design and implementation of a hierarchical affinity scheduler,
 a system that allows multiple local scheduling domains to operate concurrently while maintaining affinity awareness within the same application. 
@@ -16,17 +16,35 @@ The tools provided will allow power users to express complex scheduling requirem
 
 At initialization, nOS-V builds a hierarchical representation of the hardware topology, including NUMA nodes, chiplets, and cores. This topology is used to construct efficient scheduling data-structures.
 
-\textbf{Affinity configuration}. Tasks and taskgroups can have \textbf{strict} or \textbf{flexible} affinity. Strict affinity requires that tasks/taskgroups are executed only within the specified affinity domains, while with flexible affinity the user provides an acceptable level of affinity relaxation, allowing the runtime to schedule tasks/taskgroups in broader domains if necessary for load balancing. E.g., a task with strict affinity to a specific core can only be executed on that one core, while a task with flexible affinity with the \textit{acceptable} domain being NUMA may execute on any core within the same NUMA node if the specified core is busy. This multi-level affinity specification allows users to balance between data locality and load balancing according to their application's needs.
+\textbf{Affinity configuration.} Tasks and taskgroups can have \textbf{strict} or \textbf{flexible} affinity. Strict affinity requires that tasks/taskgroups are executed only within the specified affinity domains, while with flexible affinity the user provides an acceptable level of affinity relaxation, allowing the runtime to schedule tasks/taskgroups in broader domains if necessary for load balancing. E.g., a task with strict affinity to a specific core can only be executed on that one core, while a task with flexible affinity with the \textit{acceptable} domain being NUMA may execute on any core within the same NUMA node if the specified core is busy. This multi-level affinity specification allows users to balance between data locality and load balancing according to their application's needs.
 
-\textbf{Affinity domains tree}. Taskgroups where affinity scheduling is enabled will have a tree of \textit{affinity domains} which are containers where tasks/taskgroups will be inserted. For each topology domain there are 2 affinity domains, one for \textbf{preferred affinity} and one for \textbf{acceptable affinity}. Given a CPU, we know its topology information, and scheduling becomes a matter of traversing the tree upwards twice, visiting first the preferred affinity domains, and then the acceptable ones, until we find a non-empty domain from which to select a task/taskgroup to execute.
+\textbf{Affinity domain.} Defined as the combination of a topology level and an affinity type (preferred or acceptable). An affinity domain is a container where tasks/taskgroups with matching affinity constraints are inserted. Depending on the taskgroup's scheduling policy, the implementation of the affinity domain container may vary (e.g., FIFO/LIFO queue, priority queue, etc.).
 
-\textbf{Taskgroup Nesting}. There are 2 types of taskgroups: affinity-aware and regular. Regular taskgroups simply have one container instead of the affinity domains tree, and tasks/taskgroups are inserted there without considering affinity. For normal taskgroups, when they have ready tasks/taskgroups they are simply added to the affinity domains of their parent, determined by their affinity constraints. 
+\textbf{Affinity domains tree.} Taskgroups where affinity scheduling is enabled will have a tree of \textit{affinity domains} which are containers where tasks/taskgroups will be inserted. For each topology domain there are 2 affinity domains, one for \textbf{preferred affinity} and one for \textbf{acceptable affinity}. \cref{fig:affinity-domains} shows an example of an affinity domain tree. Given a CPU, we know its topology information, and scheduling becomes a matter of traversing the tree upwards twice, visiting first the preferred affinity domains, and then the acceptable ones, until we find a non-empty domain from which to select a task/taskgroup to execute. An example of this traversal is shown in \cref{fig:affinity-domain-traversal}.
+
+\todo{Make figure show 2 domains per topo domain (pref and acc)}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{affinity_domains.pdf}
+\caption{Affinity domain tree in affinity-aware policies.}
+\label{fig:affinity-domains}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{affinity_domain_tree_traversal.pdf}
+\caption{Affinity domain traversal for CPU $C_6$ on a simplified architecture. Inclusion into parent level is shown in red dotted lines. The domains visited are colored in red. The scheduler queries affinity domains from most specific to least specific: CPU 6 → Core 3 → Complex Set 2 → NUMA 1 → NODE.}
+\label{fig:affinity-domain-traversal}
+\end{figure}
+
+\textbf{Taskgroup Nesting.} Each application will have a root taskgroup, to which the user can attach more user-created taskgroups. There are 2 types of taskgroups: affinity-aware and regular. Regular taskgroups simply have one container instead of the affinity domains tree, and tasks/taskgroups are inserted there without considering affinity. For normal taskgroups, when they have ready tasks/taskgroups they are simply added to the affinity domains of their parent, determined by their affinity constraints. 
 For affinity-aware taskgroups, when tasks/taskgroups are added to an affinity domain $A$ a representative is inserted to the parent's $A$. 
 This way, when the parent is queried for $A$, it will find said children, and taskgroup hierarchy traversal is done recursively on the same affinity domain (in this case $A$) until a leaf taskgroup is reached, from which a task can be selected for execution. 
-Note that the taskgroup hierarchy is traversed from the root downwards through an affinity domain \textbf{only if} there are ready tasks in a leaf taskgroup, which avoids unnecessary traversals. In other words, if the root taskgroup has no ready tasks, no traversal is done.
+Note that the taskgroup hierarchy is traversed from the root downwards through an affinity domain \textbf{only if} there are ready tasks in a leaf taskgroup, which avoids unnecessary traversals. Consequently, if the root taskgroup has no ready tasks, no traversal is done.
 This design allows for efficient traversal of the taskgroup hierarchy while respecting affinity constraints. 
 
-\textbf{Multi-policy scheduling}. Each taskgroup can be configured to use a different scheduling policy, allowing users to tailor the scheduling behavior to the specific needs of different parts of their application. 
+\textbf{Multi-policy scheduling.} Each taskgroup can be configured to use a different scheduling policy, allowing users to tailor the scheduling behavior to the specific needs of different parts of their application. 
 Depending on the taskgroup's configuration, tasks/taskgroups within it can be scheduled using FIFO, LIFO, priority-based, or other custom policies.
 For regular taskgroups, the scheduling policy is applied directly to the container holding the tasks/taskgroups. 
-For affinity-aware taskgroups, the scheduling policy is applied at each affinity domain container, ensuring that tasks/taskgroups are selected according to the specified policy while respecting affinity constraints.
+For affinity-aware taskgroups, the scheduling policy is applied at each affinity domain container, ensuring that tasks/taskgroups are retrieved following the order specified by the taskgroup's policy.

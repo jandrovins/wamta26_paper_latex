@@ -2,6 +2,7 @@
 \usepackage{enumitem}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\graphicspath{{fig/}}% For details see: https://latexref.xyz/dev/latex2e.html#g_t_005cgraphicspath
 % If you use the hyperref package, please uncomment the following two lines
 % to display URLs in blue roman font according to Springer's eBook style:
 %\usepackage{color}
@@ -12,6 +13,34 @@
 \usepackage{todonotes}
 \usepackage{biblatex}
 \usepackage{cleveref}
+\usepackage{tikz}
+
+% Circled numbers 1..10
+\newcommand{\circnum}[1]{%
+    \tikz[baseline=(char.base)]{%
+        \ifnum#1=10%
+            \def\csep{.6pt}%
+            \def\csize{1.9em}%
+        \else%
+            \def\csep{1pt}%
+            \def\csize{1em}%
+        \fi%
+        \node[shape=circle,draw,inner sep=\csep,minimum size=\csize,font=\footnotesize] (char) {#1};%
+    }%
+}
+
+% Convenience macros for 1..10
+\newcommand{\circone}{\circnum{1}}
+\newcommand{\circtwo}{\circnum{2}}
+\newcommand{\circthree}{\circnum{3}}
+\newcommand{\circfour}{\circnum{4}}
+\newcommand{\circfive}{\circnum{5}}
+\newcommand{\circsix}{\circnum{6}}
+\newcommand{\circseven}{\circnum{7}}
+\newcommand{\circeight}{\circnum{8}}
+\newcommand{\circnine}{\circnum{9}}
+\newcommand{\circten}{\circnum{10}}
+
 \addbibresource{bibliography.bib}
 \setlength{\belowcaptionskip}{-15pt} % Adjust the value as needed
 
