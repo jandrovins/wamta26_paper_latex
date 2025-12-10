@@ -1,6 +1,8 @@
 \section{Introduction}
 \label{sec:intro}
 
+\todo{I want to rewrite the introduction to make more emphasis on 2 critical points: 1. The disparity on memory bandwidth depending on where the data accessed by a a core is located and 2. The generation and exploitation of parallelism inside HPC applications (tell the story of how it reduces performance, and how it can be improved by ordering of tasks, which gives a strong point for multi-policy). We provide mechanisms for memory bandwidth and latency improvement while also giving tools for improving parallelism exploitation.}
+
 The end of Dennard scaling~\cite{Dennard1974} and the subsequent shift toward multi-core architectures over the past two decades has fundamentally transformed the computing landscape. Multi-core systems with non-uniform memory access architectures are the norm nowadays.
 The proliferation of multi-core processors has made intra-node parallelism essential for achieving high performance in scientific computing applications.
 
@@ -12,8 +14,9 @@ The fork-join model excels with structured parallelism, where the parallel work 
 .
 Despite these strenghts, the fork-join model struggles with applications exhibiting dynamic parallelism, where the structure and amount of parallel work is not known at compile time.
 
-Hierarchical algorithms, nested parallelism, and dynamic work creation are common patterns in parallel programming that can be difficult to express using the fork-join model~\cite{ayguadeProposalTaskParallelism2008}~\cite{duranProposalDependenciesOpenMP2009}. Task-based parallel programming models were introduced to address these limitations by providing more flexible parallelism expression.
+Hierarchical algorithms, nested parallelism, and dynamic work creation are common patterns in parallel programming that can be difficult to express using the fork-join model~\cite{ayguadeProposalTaskParallelism2008}~\cite{duranProposalDependenciesOpenMP2009}. Task-based parallel programming models were introduced to address these limitations by providing more flexible parallelism expression. After the introduction of task dependencies, task-based models can express complex parallelism patterns, allowing tasks to be created dynamically and executed based on their dependencies, creating a \textit{data-flow execution model} that relies on fine-grained synchronizations between tasks. This model reduces the need for global synchronization points, enabling better utilization of processing resources and improving scalability for a wide range of algorithms.
 
+In the data-flow model, once a task finishes, all of its dependencies are satisfied, so that successor tasks become ready and are added to the scheduler, which will eventually schedule then on an available core. 
 The scheduling of tasks is a critical aspect of task-based parallel programming models. The task scheduler is in charge of feeding ready tasks to the available processing units, ensuring that tasks are executed in a timely manner. 
 There is a tradoff between scheduling algorithms and scalability. 
 The more complex the scheduling algorithm, the more overhead the runtime incurs to manage the scheduling of tasks, and the less scalable the runtime becomes. 
