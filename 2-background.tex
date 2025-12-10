@@ -1,5 +1,68 @@
 \section{Background}
 \label{sec:background}
 
+\subsection{Performance challenges on modern memory hierarchies}
+
+The performance implications of NUMA are significant: local memory access is substantially faster than remote memory access because it avoids the interconnect traversal and associated contention. This makes data locality a critical factor for achieving high performance on modern NUMA architectures. 
+While processor speeds have grown exponentially, memory access times have not improved as fast, creating a gap between compute capability and memory system performance. Also, the increasing number of cores per socket exacerbates the memory wall problem, as more cores contend for shared resources.
+
+Appart to the NUMA effect, there is a similar problem created by modern chiplet architectures. Chiplet architectures are a modular design approach to processor architectures in which multiple smaller dies (chiplets) are put together to form a single processor package. 
+This design pattern has been adopted by major chip manufacturers, including Intel and AMD~\cite{nassifSapphireRapidsNextGeneration2022a}\cite{mattioliRomeMilanAMD2021}, because it allows for more efficient design and manufacturing processes, by potentially reusing some key chip production steps: physical design, testing, validation, firmware development, etc.~\cite{naffzigerPioneeringChipletTechnology2021}. This modular approach has significant implications for cache organization and memory access patterns.
+
+Chiplet architectures introduce new patterns for cache organization and memory access patterns, specifically for the L3 cache. Depending on each design, the L3 cache may be:
+
+\begin{itemize}
+    \item Shared across all cores in the chiplet, like the AMD 4th Gen EPYC 9684X (Genoa-X) processor~\cite{bhargavaAMDNextGenerationZen2024}.
+    \item Shared across partitions of cores in the chiplet, where each partition has its own L3 cache, like the AMD 4th Gen EPYC 9754 (Bergamo)~\cite{bhargavaAMDNextGenerationZen2024}.
+    \item Shared across all cores in the package, giving an L3 slice to each core, while allowing all cores access to all L3 slices, as the Sapphire Rapids~\cite{4thGenIntel}.
+\end{itemize}
+
+
+Unlike traditional monolithic processors where all cores have similar access latencies to shared caches, chiplet designs introduce varying access times depending on which chiplet a core resides on and where the requested data is cached. Data requested from the L3 cache may be located on the same chiplet, on a different chiplet in the same socket, or on a different socket. The modularization leads to significant differences in access latencies. \todo{Mostrar CFD the latencia dentro del chiplet en sapphire rapids y genoa tal como hicieron en paper de CHARM}
+
+Within the same socket inter-core latencies have been shown vary by up to 6x~\cite{fogliOptimizingSortingChipletBased}, showing how important it is to consider cache locality at the chiplet level.
+
+Tasks scheduled on chiplet-based processors must be aware of these differences in access latencies to achieve optimal performance. Runtime systems must be aware of this hardware particularities to improve task scheduling. Runtimes should include the chiplet information in their hardware topology information, and use this information to improve task scheduling decisions.
+
 \subsection{Task schedulers}
 
+\todo{Esta sección debería ser más corta?}
+
+Task scheduling operates orthogonally to dependency resolution. While dependency management acts as a prerequisite filter, schedulers focus purely on load balancing and assigning ready tasks to worker threads. Only tasks with fully resolved dependencies participate in the scheduling algorithms. Schedulers generally follow two main approaches: \textbf{centralized} and \textbf{distributed}.
+
+\subsubsection{Centralized schedulers}
+
+In centralized schedulers, threads access a single global pool of ready tasks, typically protected by a lock. This global view makes load balancing trivial~\cite{salehianComparisonThreadingProgramming2017} and allows for complex scheduling algorithms, but it also introduces contention on the shared data structures. While synchronization overhead is negligible for coarse-grained tasks, the central lock becomes a bottleneck for fine-grained tasks on highly parallel systems~\cite{yuTaskgraphLowContention2023,gautierImpactOpenMPTask2018a}. Examples include the GCC OpenMP and nOS-V OmpSs-2 runtimes. Techniques exist to mitigate contantion in centralized schedulers~\cite{DBLP:conf/ppopp/AlvarezSMRB21}, such as having wait-free queues per thread for task insertion and delegate task retrieval to a single thread for improved cache use inside the scheduling path.
+
+\subsubsection{Distributed schedulers}
+
+Distributed schedulers assign a local task queue to each thread, significantly reducing contention by localizing access~\cite{yuTaskgraphLowContention2023}. To mitigate load imbalances—such as when a single thread creates all tasks—these systems employ \textit{task stealing}, allowing idle threads to process tasks from other queues~\cite{salehianComparisonThreadingProgramming2017}. It is fairly typical to find applications that have only one task creator, on which case the distributed scheduler behaves simlarly to the centralized global lock approach, because most threads need to steal from only one single creator queue. However, when a task liberates tasks' because of dependencies resolution, the newly ready tasks are added to the thread private queues. Prominent examples of distributed schedulers include the LLVM OpenMP runtime and Intel TBB.
+
+\subsection{OmpSs-2 runtime stack}
+
+NODES~\cite{BscpmNodes2024} and nOS-V~\cite{alvarezNOSVCoExecutingHPC2024a} are complementary runtimes that together provide the complete runtime environment for OmpSs-2 programs. NODES serves as the higher-level runtime that receives library calls generated by the compiler after parsing OmpSs-2 pragmas. It manages complex program constructs including task dependencies, task loops, device offloading, and other OmpSs-2-specific features. Once NODES determines that a task is ready for execution (i.e., all dependencies are satisfied), it submits the task to nOS-V for actual scheduling and execution.
+
+nOS-V in the other hand, is the lower level runtime that is in charge of managing thread workers, scheduling tasks, and executing them on the available hardware resources. 
+nOS-V provides an API for NODES to use for task creation, task submission and setting task's properties such as task priority. 
+In the context of OmpSs-2, nOS-V only receives ready tasks from NODES, which means tasks that have all their dependencies resolved and can be executed immediately.
+
+\subsection{nOS-V Runtime}
+\label{bg:nosv}
+
+When nOS-V is initialized, it binds a pthread worker to each available core in the system, creating a pool of worker threads that will be used to execute tasks. The three main components of nOS-V's architecture are: 1. The CPU manager, in charge of managing the mapping of threads to cores, 2. The centralized task scheduler, responsible for selecting which task to execute next on each core, and 3. The thread manager, responsible of managing worker threads per process.
+
+The centralized scheduler is a high-performance Delegation Ticket Lock (DTLock) based scheduler~\cite{alvarezAdvancedSynchronizationTechniques2021a}\cite{alvarez2022nosv}, on which only one thread has access to the scheduler data structures at a time, and is responsible for not only finding a task for itself, but for scheduling the other hungry threads as well. 
+This improves cache locality for the thread running the scheduler code serving other threads, at the cost of possible task starvation when very fine-grained tasks are being created and lots of threads are waiting for tasks to be scheduled. 
+
+Task submission to nOS-V allows multiple tasks to be submitted concurrently from different threads without needing to aquire the scheduler lock. To that end, each thread has a lock-free Single-Producer Single-Consumer queues (SPSC) that are later consumed by the thread running the scheduler code. 
+This process is described in~\cref{fig:nosv-sched-highlevel}. When a task is submitted, it is pushed to the lock-free queue. Later on, when a thread is running the scheduler code with the lock acquired, it will empty the SPSC queues and insert tasks into the scheduler data structures. This allows the runtime to submit tasks without needing to aquire the scheduler DTLock, avoiding contention and increasing insertion speed~\cite{alvarezAdvancedSynchronizationTechniques2021a}.
+\todo{in figure, Make each thread a separated square, same as hungry threads}
+
+This works focuses on replacing the previous scheduling algorithm inside nOS-V with the proposed hierarchical scheduler, while keeping the same overall architecture for task submission and scheduling.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{fig/nosv_sched_highlevel.pdf}
+\caption{High-level view of nOS-V task scheduling architecture showing the interaction between task submission queues, the centralized scheduler, and worker threads.}
+\label{fig:nosv-sched-highlevel}
+\end{figure}
