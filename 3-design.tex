@@ -10,11 +10,14 @@ Our system lies on 3 fundamental pillars:
 (3) \textbf{hierarchical taskgroup nesting} allowing users to construct tailored taskgroup structures that match their application's needs, and 
 
 Application developers will use the abstractions provided by nOS-V to create taskgroups, define their nesting as well as their scheduling policy, while also optionally configuring the affinity constraints for each task or taskgroup.
-The tools provided will allow power users to express complex scheduling requirements in a straightforward manner.
+The interfaces provided allow power users to express complex scheduling requirements in a straightforward manner.
 
 \subsection{Hierarchical Affinity Scheduling architecture}
 
-At initialization, nOS-V builds a hierarchical representation of the hardware topology, including NUMA nodes, chiplets, and cores. This topology is used to construct efficient scheduling data-structures.
+%At initialization, nOS-V builds a hierarchical representation of the hardware topology, including NUMA nodes, chiplets, and cores. This topology is used to construct efficient scheduling data-structures.
+\todo{we should introduce first the hierarchical  scheduling (i.e. taskgroups and nesting), then multi-policy scheduling (i.e. each taskgroup has its own policy) and finally the extension to support affinity, as this is a key property,  each thing in its own section. As part of the affinity section, you have to introduce first the main concepts: hardware topology/hierarchy affinity config, domain, tree, etc. }
+
+\todo{Regarding the afinity part, The first paragraph should introduce how we model the hardware topology so we can latter one define the affinity policies, not about specific nOS-V  implementation.}
 
 \textbf{Affinity configuration.} Tasks and taskgroups can have \textbf{strict} or \textbf{flexible} affinity. Strict affinity requires that tasks/taskgroups are executed only within the specified affinity domains, while with flexible affinity the user provides an acceptable level of affinity relaxation, allowing the runtime to schedule tasks/taskgroups in broader domains if necessary for load balancing. E.g., a task with strict affinity to a specific core can only be executed on that one core, while a task with flexible affinity with the \textit{acceptable} domain being NUMA may execute on any core within the same NUMA node if the specified core is busy. This multi-level affinity specification allows users to balance between data locality and load balancing according to their application's needs.
 

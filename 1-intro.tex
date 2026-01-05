@@ -11,7 +11,6 @@ These models aim to hide the complexity of parallel execution while enabling pro
 
 The fork-join model emerged as a powerful tool able to express parallelism for a wide range of scientific applications, with OpenMP being the de-facto standard used in HPC. 
 The fork-join model excels with structured parallelism, where the parallel work can be divided into independent tasks at well-defined points in the program. This includes data-parallel operations on independent blocks of data, as well as functional parallelism with a predictable structure.
-.
 Despite these strenghts, the fork-join model struggles with applications exhibiting dynamic parallelism, where the structure and amount of parallel work is not known at compile time.
 
 Hierarchical algorithms, nested parallelism, and dynamic work creation are common patterns in parallel programming that can be difficult to express using the fork-join model~\cite{ayguadeProposalTaskParallelism2008}~\cite{duranProposalDependenciesOpenMP2009}. Task-based parallel programming models were introduced to address these limitations by providing more flexible parallelism expression. After the introduction of task dependencies, task-based models can express complex parallelism patterns, allowing tasks to be created dynamically and executed based on their dependencies, creating a \textit{data-flow execution model} that relies on fine-grained synchronizations between tasks. This model reduces the need for global synchronization points, enabling better utilization of processing resources and improving scalability for a wide range of algorithms.
@@ -23,8 +22,8 @@ The more complex the scheduling algorithm, the more overhead the runtime incurs 
 
 This creates a fundamental challenge in runtime design: finding the optimal balance between scheduling sophistication and overhead. The `sweet spot' depends heavily on the application characteristics, hardware architecture, and task granularity. 
 What works well for one scenario may be suboptimal for another.
-Most widely used runtimes for task-based parallel programming models, implement schedulers which are restrictive in the sense that they do not allow the user to control the scheduling policy.
-Ideally, each application should be able to specify the specific scheduling policy that best suits its needs, allowing the runtime to adapt dynamically to the application's requirements. 
+Most widely used runtimes for task-based parallel programming models, implement schedulers which are restrictive in the sense that they not only provide a few scheduling options (if any at all) but these are applied globally (i.e. to all tasks) and cannot change at runtime.
+Ideally, each application should be able to specify the specific scheduling policy that best suits its needs, allowing the runtime to adapt dynamically to the application's requirements. Moreover, specify scheduling policies on specific groups of tasks.
 When more complex scheduling policies are needed, the runtime can use them, while still supporting simpler, less time-consuming policies for those application that benefit from them in order to reduce overhead.
 
 Schedulers that do not consider data locality often exhibit performance variability on NUMA architectures~\cite{terbovenApproachesTaskAffinity2016}.

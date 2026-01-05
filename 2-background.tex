@@ -28,7 +28,7 @@ Tasks scheduled on chiplet-based processors must be aware of these differences i
 
 \todo{Esta sección debería ser más corta?}
 
-Task scheduling operates orthogonally to dependency resolution. While dependency management acts as a prerequisite filter, schedulers focus purely on load balancing and assigning ready tasks to worker threads. Only tasks with fully resolved dependencies participate in the scheduling algorithms. Schedulers generally follow two main approaches: \textbf{centralized} and \textbf{distributed}.
+Task scheduling operates orthogonally to dependency resolution. While dependency management acts as a prerequisite filter, schedulers focus purely on load balancing and assigning ready tasks to idle cores. Only tasks with fully resolved dependencies participate in the scheduling algorithms. Schedulers generally follow two main approaches: \textbf{centralized} and \textbf{distributed}.
 
 \subsubsection{Centralized schedulers}
 
@@ -51,13 +51,14 @@ In the context of OmpSs-2, nOS-V only receives ready tasks from NODES, which mea
 
 When nOS-V is initialized, it binds a pthread worker to each available core in the system, creating a pool of worker threads that will be used to execute tasks. The three main components of nOS-V's architecture are: 1. The CPU manager, in charge of managing the mapping of threads to cores, 2. The centralized task scheduler, responsible for selecting which task to execute next on each core, and 3. The thread manager, responsible of managing worker threads per process.
 
-The centralized scheduler is a high-performance Delegation Ticket Lock (DTLock) based scheduler~\cite{alvarezAdvancedSynchronizationTechniques2021a}\cite{alvarez2022nosv}, on which only one thread has access to the scheduler data structures at a time, and is responsible for not only finding a task for itself, but for scheduling the other hungry threads as well. 
+The centralized scheduler is based on a Delegation Ticket Lock (DTLock)~\cite{alvarezAdvancedSynchronizationTechniques2021a}\cite{alvarez2022nosv}, where only one thread has access to the scheduler data structures at a time, and is responsible for not only finding a task for itself, but for scheduling the other hungry threads as well. 
 This improves cache locality for the thread running the scheduler code serving other threads, at the cost of possible task starvation when very fine-grained tasks are being created and lots of threads are waiting for tasks to be scheduled. 
 
-Task submission to nOS-V allows multiple tasks to be submitted concurrently from different threads without needing to aquire the scheduler lock. To that end, each thread has a lock-free Single-Producer Single-Consumer queues (SPSC) that are later consumed by the thread running the scheduler code. 
+Task submission to nOS-V allows multiple tasks to be submitted concurrently from different threads without needing to aquire the scheduler lock. To that end, each core has a lock-free Single-Producer Single-Consumer queues (SPSC) that are later consumed by the thread running the scheduler code. 
 This process is described in~\cref{fig:nosv-sched-highlevel}. When a task is submitted, it is pushed to the lock-free queue. Later on, when a thread is running the scheduler code with the lock acquired, it will empty the SPSC queues and insert tasks into the scheduler data structures. This allows the runtime to submit tasks without needing to aquire the scheduler DTLock, avoiding contention and increasing insertion speed~\cite{alvarezAdvancedSynchronizationTechniques2021a}.
 \todo{in figure, Make each thread a separated square, same as hungry threads}
 
+\todo{Maybe we can simplify a bit the scheduling infrastructure of nOS-V and add a section about how the default scheduling policy works ( for a single application, no need to explain round-robin between processes as we only evaluate one process)}
 This works focuses on replacing the previous scheduling algorithm inside nOS-V with the proposed hierarchical scheduler, while keeping the same overall architecture for task submission and scheduling.
 
 \begin{figure}[htbp]
